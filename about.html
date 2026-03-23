@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wave — Apex Works</title>
+<meta name="description" content="The wave doesn't slow down. The ocean doesn't negotiate. Apex Works — Technology & Media Studio, Monroe, WA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #07101F;
+    --midnight:#0C2340;
+    --blue:    #185FA5;
+    --electric:#378ADD;
+    --ice:     #E6F1FB;
+    --white:   #ffffff;
+    --muted:   #4A6A8A;
+    --border:  rgba(55,138,221,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── GRID TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7,16,31,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-mark { width: 36px; height: 36px; }
+
+  .nav-wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: var(--white);
+  }
+
+  .nav-wordmark span { color: var(--electric); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--electric); }
+
+  /* ── WAVE HERO ── */
+  .wave-hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .wave-svg-wrap {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  .wave-svg-wrap svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wave-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(24,95,165,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(72px, 12vw, 140px);
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-title .outline {
+    -webkit-text-stroke: 2px rgba(55,138,221,0.5);
+    color: transparent;
+  }
+
+  .hero-title .solid { color: var(--white); }
+  .hero-title .electric { color: var(--electric); }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    margin-top: 28px;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.2s;
+  }
+
+  .scroll-cue span {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: rgba(55,138,221,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--electric);
+    animation: scrollDrop 2s ease infinite 1.5s;
+  }
+
+  /* ── MANIFESTO ── */
+  .manifesto {
+    position: relative;
+    z-index: 1;
+    padding: 0 48px 120px;
+  }
+
+  .manifesto-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .manifesto-line {
+    font-size: clamp(22px, 3.5vw, 38px);
+    font-weight: 300;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.85);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .manifesto-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .manifesto-line:last-child { border-bottom: none; }
+
+  .manifesto-line .hl {
+    color: var(--electric);
+    font-style: italic;
+  }
+
+  .manifesto-line .strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ── WAVE DIVIDER ── */
+  .wave-divider {
+    position: relative;
+    z-index: 1;
+    padding: 0 48px;
+    margin-bottom: 80px;
+    opacity: 0.2;
+  }
+
+  .wave-divider svg { width: 100%; }
+
+  /* ── BELIEF SECTION ── */
+  .belief {
+    position: relative;
+    z-index: 1;
+    padding: 0 48px 120px;
+    border-top: 1px solid var(--border);
+  }
+
+  .belief-inner {
+    max-width: 1100px;
+    margin: 80px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .belief-left .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .belief-left .section-tag::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--electric);
+  }
+
+  .belief-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .belief-title .accent { color: var(--electric); }
+
+  .belief-body {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .belief-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .belief-item {
+    background: var(--midnight);
+    padding: 28px 28px;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .belief-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--blue);
+    transform: scaleY(0);
+    transition: transform 0.3s;
+    transform-origin: bottom;
+  }
+
+  .belief-item:hover { background: #0F2035; }
+  .belief-item:hover::before { transform: scaleY(1); }
+
+  .belief-item-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .belief-item-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  .belief-item-text em {
+    color: var(--electric);
+    font-style: normal;
+  }
+
+  /* ── FOUNDER ── */
+  .founder {
+    position: relative;
+    z-index: 1;
+    padding: 80px 48px 120px;
+    border-top: 1px solid var(--border);
+  }
+
+  .founder-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .founder-mark {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 28px;
+  }
+
+  .founder-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .founder-title {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 28px;
+  }
+
+  .founder-bio {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .founder-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── CTA ── */
+  .cta-band {
+    position: relative;
+    z-index: 1;
+    background: var(--midnight);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 48px;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .cta-title .accent { color: var(--electric); }
+
+  .cta-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 40px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--electric);
+    transform: translateY(-1px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-wordmark span { color: var(--electric); }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollDrop {
+    0%   { top: -100%; }
+    100% { top: 100%; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .wave-hero, .manifesto, .belief, .founder, .cta-band { padding-left: 24px; padding-right: 24px; }
+    .belief-inner { grid-template-columns: 1fr; gap: 48px; }
+    footer { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg class="nav-mark" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="8" fill="#185FA5"/>
+      <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
+      <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
+    </svg>
+    <span class="nav-wordmark">APEX <span>WORKS</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#contact">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- WAVE HERO -->
+<section class="wave-hero">
+
+  <!-- Hokusai-inspired line art wave SVG -->
+  <div class="wave-svg-wrap">
+    <svg viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <!-- Main great wave -->
+      <path d="M0 380 C80 320 120 260 200 240 C240 230 260 250 280 230 C320 200 300 160 360 140 C400 125 420 145 460 120 C520 85 500 40 580 20 C640 5 660 30 720 15 C780 0 800 30 860 50 C920 70 940 100 1000 80 C1060 60 1080 20 1140 10 C1180 4 1200 15 1200 15 L1200 280 C1180 270 1140 250 1100 260 C1040 275 1020 310 960 300 C900 290 880 255 820 265 C760 275 740 310 680 305 C620 300 600 270 540 275 C480 280 460 315 400 320 C340 325 320 295 260 300 C200 305 180 340 120 350 C80 357 40 345 0 380Z"
+        stroke="#378ADD" stroke-width="1.5" fill="none" opacity="0.8"/>
+
+      <!-- Wave curl top -->
+      <path d="M460 120 C480 100 500 80 530 60 C560 40 590 30 620 25 C650 20 670 30 700 35 C730 40 750 55 770 45 C790 35 800 15 830 10"
+        stroke="#378ADD" stroke-width="1.2" fill="none" opacity="0.6"/>
+
+      <!-- Foam tendrils -->
+      <path d="M530 60 C520 50 515 38 525 28 C535 18 550 20 555 30 C560 40 550 52 540 55"
+        stroke="#85B7EB" stroke-width="1" fill="none" opacity="0.7"/>
+      <path d="M580 20 C575 10 578 2 588 1 C598 0 604 8 600 16 C596 24 585 24 580 20"
+        stroke="#85B7EB" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M360 140 C350 128 348 112 358 104 C368 96 382 100 384 112 C386 124 376 136 364 138"
+        stroke="#85B7EB" stroke-width="1" fill="none" opacity="0.5"/>
+
+      <!-- Secondary wave -->
+      <path d="M0 450 C60 420 100 400 160 395 C220 390 250 410 310 405 C370 400 400 375 460 370 C520 365 550 385 610 382 C670 379 700 358 760 355 C820 352 850 370 910 368 C970 366 1000 348 1060 345 C1120 342 1160 355 1200 360 L1200 600 L0 600Z"
+        stroke="#185FA5" stroke-width="1" fill="none" opacity="0.5"/>
+
+      <!-- Third wave back -->
+      <path d="M0 500 C80 480 140 470 200 468 C280 465 320 482 400 478 C480 474 520 455 600 452 C680 449 720 465 800 462 C880 459 920 442 1000 440 C1080 438 1140 450 1200 455 L1200 600 L0 600Z"
+        stroke="#0C2340" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+      <!-- Mount Fuji silhouette (distant) -->
+      <path d="M820 380 L870 290 L920 380Z"
+        stroke="#185FA5" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M838 380 L870 300 L902 380"
+        stroke="#378ADD" stroke-width="0.8" fill="none" opacity="0.2"/>
+
+      <!-- Water texture lines -->
+      <path d="M0 420 Q100 415 200 418 Q300 421 400 416 Q500 411 600 414" stroke="#185FA5" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M600 425 Q700 420 800 423 Q900 426 1000 421 Q1100 416 1200 419" stroke="#185FA5" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M0 470 Q150 465 300 468 Q450 471 600 466" stroke="#0C2340" stroke-width="0.5" fill="none" opacity="0.4"/>
+      <path d="M600 472 Q750 467 900 470 Q1050 473 1200 468" stroke="#0C2340" stroke-width="0.5" fill="none" opacity="0.4"/>
+
+      <!-- Boats (tiny, distant) -->
+      <path d="M680 370 L685 362 L690 370Z" stroke="#185FA5" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <line x1="685" y1="362" x2="685" y2="355" stroke="#185FA5" stroke-width="0.6" opacity="0.3"/>
+
+      <path d="M720 366 L726 358 L732 366Z" stroke="#185FA5" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <line x1="726" y1="358" x2="726" y2="350" stroke="#185FA5" stroke-width="0.6" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="wave-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">The Apex Works Manifesto</div>
+    <h1 class="hero-title">
+      <span class="outline">The</span><br>
+      <span class="solid">Great</span><br>
+      <span class="electric">Wave.</span>
+    </h1>
+    <p class="hero-sub">The wave doesn't slow down. The ocean doesn't negotiate.</p>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    <span>Read on</span>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+
+    <p class="manifesto-line">
+      The <span class="hl">great wave</span> is coming.
+    </p>
+
+    <p class="manifesto-line">
+      You can spend everything you have <span class="strong">swimming to catch it</span> — or you can spend the rest of your life swimming behind it, watching the gap grow wider with every stroke.
+    </p>
+
+    <p class="manifesto-line">
+      <span class="hl">The wave doesn't slow down.</span><br>
+      The ocean doesn't negotiate.
+    </p>
+
+    <p class="manifesto-line">
+      And the distance between those who caught it and those who didn't <span class="strong">compounds silently, invisibly, every single day.</span>
+    </p>
+
+    <p class="manifesto-line">
+      The choice isn't really about technology.<br>
+      It's about whether you're willing to <span class="hl">move before you're certain.</span>
+    </p>
+
+  </div>
+</section>
+
+<!-- WAVE DIVIDER -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1200 60" fill="none">
+    <path d="M0 30 C100 10 200 50 300 30 C400 10 500 50 600 30 C700 10 800 50 900 30 C1000 10 1100 50 1200 30"
+      stroke="#378ADD" stroke-width="1" fill="none"/>
+    <path d="M0 40 C100 20 200 60 300 40 C400 20 500 60 600 40 C700 20 800 60 900 40 C1000 20 1100 60 1200 40"
+      stroke="#185FA5" stroke-width="0.5" fill="none" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- BELIEF SECTION -->
+<section class="belief">
+  <div class="belief-inner">
+
+    <div class="belief-left">
+      <div class="section-tag reveal">What we believe</div>
+      <h2 class="belief-title reveal reveal-d1">Built for<br>wave <span class="accent">catchers.</span></h2>
+      <p class="belief-body reveal reveal-d2">
+        Apex Works exists for the businesses and founders who feel the swell beneath them and want to move — not after proof arrives, but before the window closes.
+      </p>
+      <p class="belief-body reveal reveal-d2">
+        We build the tools, systems, and experiences that let you paddle faster. AI automation, immersive media, digital products — all of it in service of one goal: getting you on the wave before everyone else figures out it's real.
+      </p>
+    </div>
+
+    <div class="belief-right reveal reveal-d1">
+      <div class="belief-item">
+        <div class="belief-item-num">01</div>
+        <div class="belief-item-text">Move before you're certain. <em>Certainty is a luxury the wave doesn't offer.</em></div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-item-num">02</div>
+        <div class="belief-item-text">Build things that last. <em>The wave passes. What you built while riding it stays.</em></div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-item-num">03</div>
+        <div class="belief-item-text">Execution over perfection. <em>A live product beats a perfect plan every time.</em></div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-item-num">04</div>
+        <div class="belief-item-text">The Pacific Northwest is not a backwater. <em>It's where the wave breaks first.</em></div>
+      </div>
+      <div class="belief-item">
+        <div class="belief-item-num">05</div>
+        <div class="belief-item-text">Premium work commands premium rates. <em>We don't race to the bottom.</em></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="founder-inner">
+    <svg class="founder-mark" viewBox="0 0 64 64" fill="none">
+      <rect width="64" height="64" rx="14" fill="#185FA5"/>
+      <polygon points="32,12 50,48 14,48" fill="none" stroke="#E6F1FB" stroke-width="2.5" stroke-linejoin="round"/>
+      <line x1="32" y1="24" x2="32" y2="38" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="32" cy="42" r="2.5" fill="#378ADD"/>
+    </svg>
+    <div class="founder-name reveal">Damon Brown</div>
+    <div class="founder-title reveal reveal-d1">Founder — Apex Works</div>
+    <p class="founder-bio reveal reveal-d2">
+      Based in Monroe, Washington. Building at the intersection of AI automation, immersive media, and product development for Pacific Northwest businesses who feel the wave and want to move.
+    </p>
+    <div class="founder-location reveal reveal-d3">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="7" cy="6" r="2.5" stroke="currentColor" stroke-width="1"/>
+        <path d="M7 1C4.2 1 2 3.2 2 6c0 3.5 5 9 5 9s5-5.5 5-9c0-2.8-2.2-5-5-5z" stroke="currentColor" stroke-width="1" fill="none"/>
+      </svg>
+      Monroe, Washington
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <h2 class="cta-title reveal">Ready to <span class="accent">catch the wave?</span></h2>
+  <p class="cta-sub reveal reveal-d1">Let's build something before the window closes.</p>
+  <a href="mailto:damon@theapexworks.com" class="btn-primary reveal reveal-d2">
+    Start a conversation
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-wordmark">APEX <span>WORKS</span></span>
+  <span class="footer-copy">© 2026 Apex Works. Monroe, WA.</span>
+  <span class="footer-copy">theapexworks.com</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .manifesto-line').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
