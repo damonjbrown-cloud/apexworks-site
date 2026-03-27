@@ -119,7 +119,7 @@
   }
 
   /* ── HERO ── */
-  section.hero {
+  .hero {
     position: relative;
     z-index: 1;
     min-height: 100vh;
@@ -634,7 +634,7 @@
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
-    section.hero { padding: 120px 24px 60px; }
+    .hero { padding: 120px 24px 60px; }
     section { padding: 72px 24px; }
     .products-header { grid-template-columns: 1fr; gap: 32px; }
     .product-grid { grid-template-columns: 1fr; }
@@ -698,10 +698,10 @@
     </p>
   </div>
 
-  <div class="product-grid reveal">
+  <div class="product-grid">
 
     <!-- 01 — ListedIQ (FEATURED) -->
-    <div class="product-card featured">
+    <div class="product-card featured reveal">
       <div class="product-num">01</div>
       <div class="featured-badge">
         <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" fill="#378ADD"/><circle cx="4" cy="4" r="1.5" fill="#07101F"/></svg>
@@ -728,7 +728,7 @@
     </div>
 
     <!-- 02 — SmashBusywork -->
-    <div class="product-card">
+    <div class="product-card reveal reveal-delay-1">
       <div class="product-num">02</div>
       <svg class="product-icon" viewBox="0 0 40 40" fill="none">
         <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
@@ -741,7 +741,7 @@
     </div>
 
     <!-- 03 — Summit VR -->
-    <div class="product-card">
+    <div class="product-card reveal reveal-delay-2">
       <div class="product-num">03</div>
       <svg class="product-icon" viewBox="0 0 40 40" fill="none">
         <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
@@ -755,7 +755,7 @@
     </div>
 
     <!-- 04 — Apex Flow -->
-    <div class="product-card apex-flow">
+    <div class="product-card apex-flow reveal reveal-delay-3">
       <div class="product-num">04</div>
       <svg class="product-icon" viewBox="0 0 40 40" fill="none">
         <rect width="40" height="40" rx="8" fill="rgba(14,168,122,0.12)"/>
@@ -815,7 +815,7 @@
   <div class="section-tag reveal">Let's talk</div>
   <h2 class="section-title reveal reveal-delay-1">Start a <span class="accent">project</span></h2>
   <p class="section-body reveal reveal-delay-2">Have a project in mind? We'd love to hear about it. Reach out and let's build something worth building.</p>
-  <a href="/cdn-cgi/l/email-protection#c3a7a2aeacad83b7aba6a2b3a6bbb4acb1a8b0eda0acae" class="contact-email reveal reveal-delay-3"><span class="__cf_email__" data-cfemail="a4c0c5c9cbcae4d0ccc1c5d4c1dcd3cbd6cfd78ac7cbc9">[email&#160;protected]</span></a>
+  <a href="mailto:damon@theapexworks.com" class="contact-email reveal reveal-delay-3">damon@theapexworks.com</a>
 </section>
 
 <!-- FOOTER -->
@@ -836,5 +836,17 @@
   </span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const observer = new IntersectionObserver((entries) => 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
