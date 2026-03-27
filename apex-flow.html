@@ -581,8 +581,17 @@ async function submitWaitlist() {
   btn.textContent = 'Submitting...';
   btn.disabled = true;
 
+  const payload = {
+    first_name: fname,
+    last_name: lname,
+    email: email,
+    business_name: business,
+    business_type: btype
+  };
+
   try {
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/apex_flow_waitlist`, {
+    // 1. Save to Supabase database
+    const dbResponse = await fetch(`${SUPABASE_URL}/rest/v1/apex_flow_waitlist`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -590,25 +599,33 @@ async function submitWaitlist() {
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
         'Prefer': 'return=minimal'
       },
-      body: JSON.stringify({
-        first_name: fname,
-        last_name: lname,
-        email: email,
-        business_name: business,
-        business_type: btype
-      })
+      body: JSON.stringify(payload)
     });
 
-    if (response.ok) {
-      document.getElementById('waitlist-form').style.display = 'none';
-      document.getElementById('success-state').style.display = 'block';
-    } else {
-      const err = await response.json();
-      console.error('Supabase error:', err);
-      alert('Something went wrong. Please try again.');
+    if (!dbResponse.ok) {
+      const err = await dbResponse.text();
+      console.error('DB error:', err);
+      alert('Something went wrong saving your info. Please try again.');
       btn.textContent = 'Reserve My Spot →';
       btn.disabled = false;
+      return;
     }
+
+    // 2. Send email notification via edge function
+    fetch(`${SUPABASE_URL}/functions/v1/waitlist-email-notification`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+      },
+      body: JSON.stringify(payload)
+    }).then(r => r.json()).then(r => console.log('Email result:', r)).catch(e => console.error('Email error:', e));
+
+    // Show success immediately after DB save
+    document.getElementById('waitlist-form').style.display = 'none';
+    document.getElementById('success-state').style.display = 'block';
+
   } catch (err) {
     console.error('Network error:', err);
     alert('Connection error. Please try again.');
