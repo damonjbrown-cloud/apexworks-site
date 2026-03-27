@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Apex Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --navy: #07101F; --electric: #378ADD; --white: #ffffff; --muted: #4A6A8A; --border: rgba(55,138,221,0.2); }
+  body { background: var(--navy); color: var(--white); font-family: 'Barlow', sans-serif; font-weight: 300; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; opacity: 0.3; }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid var(--border); background: rgba(7,16,31,0.95); backdrop-filter: blur(12px); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.06em; color: var(--white); }
+  .nav-wordmark span { color: var(--electric); }
+  .nav-back { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--electric); }
+  .content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 80px 48px 120px; }
+  .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 48px; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .updated { font-size: 13px; color: var(--muted); margin-bottom: 56px; }
+  h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--electric); margin: 48px 0 16px; }
+  p { font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  ul { margin: 12px 0 16px 20px; }
+  li { font-size: 15px; line-height: 1.85; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+  a { color: var(--electric); text-decoration: none; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 24px 48px; display: flex; justify-content: space-between; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+  @media (max-width: 768px) { nav { padding: 16px 24px; } .content { padding: 60px 24px 80px; } footer { padding: 20px 24px; flex-direction: column; gap: 8px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#185FA5"/><polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/><line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/></svg>
+    <span class="nav-wordmark">APEX <span>WORKS</span></span>
+  </a>
+  <a href="/apex-flow" class="nav-back">← Back to Apex Flow</a>
+</nav>
+
+<div class="content">
+  <div class="tag">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: March 27, 2026</p>
+
+  <p>Apex Works ("we," "us," or "our") operates the Apex Flow platform and the theapexworks.com website. This Privacy Policy explains how we collect, use, and protect your information when you use our services.</p>
+
+  <h2>Information We Collect</h2>
+  <p>When you join the Apex Flow waitlist or use our platform, we may collect the following information:</p>
+  <ul>
+    <li>Name and contact information (email address, phone number)</li>
+    <li>Business name and type</li>
+    <li>Appointment and booking information</li>
+    <li>Payment information (processed securely through Stripe — we do not store card numbers)</li>
+    <li>Usage data and analytics</li>
+  </ul>
+
+  <h2>How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Provide, operate, and improve the Apex Flow platform</li>
+    <li>Send appointment reminders and booking confirmations via SMS</li>
+    <li>Process payments through our payment provider</li>
+    <li>Contact you about your waitlist position and product updates</li>
+    <li>Send service-related communications</li>
+    <li>Comply with legal obligations</li>
+  </ul>
+
+  <h2>SMS Communications</h2>
+  <p>By providing your phone number and booking an appointment through Apex Flow, you consent to receive SMS messages including appointment reminders, payment links, and follow-up messages. Message and data rates may apply. You can opt out at any time by replying STOP to any message. For help, reply HELP.</p>
+
+  <h2>Data Sharing</h2>
+  <p>We do not sell your personal information. We may share your information with trusted third-party service providers who assist us in operating our platform, including:</p>
+  <ul>
+    <li>Supabase (database and infrastructure)</li>
+    <li>Twilio (SMS communications)</li>
+    <li>Stripe (payment processing)</li>
+    <li>Resend (email communications)</li>
+  </ul>
+  <p>These providers are contractually obligated to protect your information and use it only for the services they provide to us.</p>
+
+  <h2>Data Retention</h2>
+  <p>We retain your personal information for as long as necessary to provide our services and comply with legal obligations. You may request deletion of your data at any time by contacting us.</p>
+
+  <h2>Your Rights</h2>
+  <p>You have the right to access, correct, or delete your personal information. To exercise these rights, contact us at <a href="mailto:damon@theapexworks.com">damon@theapexworks.com</a>.</p>
+
+  <h2>Security</h2>
+  <p>We implement industry-standard security measures to protect your information. All data is transmitted over HTTPS and stored securely. Payment information is handled exclusively by Stripe and never stored on our servers.</p>
+
+  <h2>Cookies</h2>
+  <p>Our website may use cookies and similar tracking technologies to improve your experience. You can control cookie settings through your browser preferences.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the updated policy on this page with a revised date.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have questions about this Privacy Policy, please contact us at:<br/>
+  Apex Works<br/>
+  Monroe, WA<br/>
+  <a href="mailto:damon@theapexworks.com">damon@theapexworks.com</a></p>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Apex Works · Monroe, WA</span>
+  <span class="footer-copy">Apex Flow Privacy Policy</span>
+</footer>
+</body>
+</html>
