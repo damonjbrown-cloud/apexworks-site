@@ -3,6 +3,8 @@
   "routes": [
     { "src": "/wesleybrian", "dest": "/wesleybrian.html" },
     { "src": "/apex-flow", "dest": "/apex-flow.html" },
+    { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
+    { "src": "/terms", "dest": "/terms.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
