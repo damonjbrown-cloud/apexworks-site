@@ -562,27 +562,59 @@
 </footer>
 
 <script>
-function submitWaitlist() {
+const SUPABASE_URL = 'https://kolahmdxqsgnfljuaquz.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvbGFobWR4cXNnbmZsanVhcXV6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyMTczNzEsImV4cCI6MjA4OTc5MzM3MX0.sAsw8h_DFPYDqvN8GhDu_GrF6mJLXAygiZlq5yRYpXI';
+
+async function submitWaitlist() {
   const fname = document.getElementById('fname').value.trim();
+  const lname = document.getElementById('lname').value.trim();
   const email = document.getElementById('email').value.trim();
+  const business = document.getElementById('business').value.trim();
   const btype = document.getElementById('btype').value;
+  const btn = document.querySelector('.form-submit');
 
   if (!fname || !email || !btype) {
     alert('Please fill in your name, email, and business type.');
     return;
   }
 
-  // Hide form, show success
-  document.getElementById('waitlist-form').style.display = 'none';
-  document.getElementById('success-state').style.display = 'block';
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
 
-  // In production: POST to Supabase or Google Sheets webhook here
-  console.log('Waitlist submission:', {
-    name: fname + ' ' + document.getElementById('lname').value,
-    email,
-    business: document.getElementById('business').value,
-    type: btype
-  });
+  try {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/apex_flow_waitlist`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        first_name: fname,
+        last_name: lname,
+        email: email,
+        business_name: business,
+        business_type: btype
+      })
+    });
+
+    if (response.ok) {
+      document.getElementById('waitlist-form').style.display = 'none';
+      document.getElementById('success-state').style.display = 'block';
+    } else {
+      const err = await response.json();
+      console.error('Supabase error:', err);
+      alert('Something went wrong. Please try again.');
+      btn.textContent = 'Reserve My Spot →';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    console.error('Network error:', err);
+    alert('Connection error. Please try again.');
+    btn.textContent = 'Reserve My Spot →';
+    btn.disabled = false;
+  }
 }
 </script>
 
