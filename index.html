@@ -69,10 +69,7 @@
     text-decoration: none;
   }
 
-  .nav-mark {
-    width: 36px;
-    height: 36px;
-  }
+  .nav-mark { width: 36px; height: 36px; }
 
   .nav-wordmark {
     font-family: 'Barlow Condensed', sans-serif;
@@ -331,9 +328,10 @@
     margin-bottom: 64px;
   }
 
+  /* 2×2 grid for four cards */
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -363,12 +361,57 @@
   .product-card:hover { background: var(--midnight); }
   .product-card:hover::before { transform: scaleX(1); }
 
+  /* ListedIQ — featured card */
   .product-card.featured {
-    background: var(--midnight);
+    background: linear-gradient(135deg, #0C2340 0%, #0F2A4A 60%, #0C2340 100%);
     border-left: 2px solid var(--electric);
+    border-bottom: 1px solid var(--border);
   }
 
-  .product-card.featured::before { transform: scaleX(1); background: var(--electric); }
+  .product-card.featured::before {
+    transform: scaleX(1);
+    background: var(--electric);
+  }
+
+  /* Apex Flow — teal accent card */
+  .product-card.apex-flow {
+    background: var(--navy);
+  }
+
+  .product-card.apex-flow::before {
+    background: linear-gradient(90deg, #0EA87A, #378ADD);
+  }
+
+  .product-card.apex-flow:hover::before {
+    transform: scaleX(1);
+  }
+
+  .product-card.apex-flow .product-name .sub { color: #0EA87A; }
+
+  .product-card.apex-flow .product-link {
+    color: #0EA87A;
+  }
+
+  .product-card.apex-flow .product-icon-bg {
+    background: rgba(14, 168, 122, 0.12);
+  }
+
+  /* Featured badge */
+  .featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--electric);
+    background: rgba(55,138,221,0.12);
+    border: 1px solid rgba(55,138,221,0.25);
+    border-radius: 2px;
+    padding: 3px 8px;
+    margin-bottom: 16px;
+  }
 
   .product-num {
     font-family: 'Barlow Condensed', sans-serif;
@@ -402,7 +445,26 @@
     font-weight: 300;
     color: rgba(255,255,255,0.45);
     line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  /* stat pills on featured card */
+  .product-stats {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
     margin-bottom: 28px;
+  }
+
+  .product-stat {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    background: rgba(55,138,221,0.08);
+    border: 1px solid rgba(55,138,221,0.15);
+    border-radius: 2px;
+    padding: 3px 10px;
   }
 
   .product-link {
@@ -415,7 +477,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    opacity: 0.6;
+    opacity: 0.7;
     transition: opacity 0.2s;
   }
 
@@ -475,7 +537,6 @@
 
   .contact .section-tag { justify-content: center; }
   .contact .section-tag::before { display: none; }
-
   .contact .section-title { margin-bottom: 20px; }
 
   .contact .section-body {
@@ -633,27 +694,57 @@
       <h2 class="section-title">What we <span class="accent">build</span></h2>
     </div>
     <p class="section-body reveal reveal-delay-1">
-      Three distinct product lines — each tackling a different problem space, all built to the same standard: premium, purposeful, and built to last.
+      Four distinct product lines — each tackling a different problem space, all built to the same standard: premium, purposeful, and built to last.
     </p>
   </div>
 
   <div class="product-grid reveal">
-    <div class="product-card">
+
+    <!-- 01 — ListedIQ (FEATURED) -->
+    <div class="product-card featured">
       <div class="product-num">01</div>
+      <div class="featured-badge">
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><circle cx="4" cy="4" r="3" fill="#378ADD"/><circle cx="4" cy="4" r="1.5" fill="#07101F"/></svg>
+        Flagship Product
+      </div>
+      <svg class="product-icon" viewBox="0 0 40 40" fill="none">
+        <rect width="40" height="40" rx="8" fill="rgba(55,138,221,0.2)"/>
+        <rect x="8" y="10" width="24" height="6" rx="1.5" stroke="#378ADD" stroke-width="1.2" fill="none"/>
+        <rect x="8" y="20" width="24" height="6" rx="1.5" stroke="#378ADD" stroke-width="1.2" fill="none"/>
+        <circle cx="12" cy="13" r="1.5" fill="#378ADD"/>
+        <circle cx="12" cy="23" r="1.5" fill="#378ADD"/>
+        <path d="M16 13h12M16 23h8" stroke="#378ADD" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+        <path d="M30 26 L34 30" stroke="#378ADD" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="27" cy="23" r="4" stroke="#378ADD" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="product-name">Listed<span class="sub">IQ</span></div>
+      <p class="product-desc">Real-time private-seller vehicle intelligence for car dealers. Scrapes OfferUp, Facebook Marketplace, and Craigslist — delivered to a live dealer dashboard before the competition calls.</p>
+      <div class="product-stats">
+        <span class="product-stat">$760M+ TAM</span>
+        <span class="product-stat">$199/mo founding rate</span>
+        <span class="product-stat">B2B SaaS</span>
+      </div>
+      <a href="https://listediq.com" class="product-link">listediq.com →</a>
+    </div>
+
+    <!-- 02 — SmashBusywork -->
+    <div class="product-card">
+      <div class="product-num">02</div>
       <svg class="product-icon" viewBox="0 0 40 40" fill="none">
         <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
         <path d="M8 28 Q14 16 20 20 Q26 24 32 12" stroke="#378ADD" stroke-width="1.5" fill="none" stroke-linecap="round"/>
         <circle cx="20" cy="20" r="2.5" fill="#378ADD"/>
       </svg>
       <div class="product-name">Smash<span class="sub">Busywork</span></div>
-      <p class="product-desc">AI automation tools that eliminate repetitive work for small businesses. Powered by OpenClaw and deployed through Hermodr, our Discord-based AI agent.</p>
+      <p class="product-desc">AI automation tools that eliminate repetitive work for small businesses. Powered by OpenClaw and deployed through Apex, our Discord-based AI agent.</p>
       <a href="https://blastoffpro.com" class="product-link">blastoffpro.com →</a>
     </div>
 
-    <div class="product-card featured">
-      <div class="product-num">02</div>
+    <!-- 03 — Summit VR -->
+    <div class="product-card">
+      <div class="product-num">03</div>
       <svg class="product-icon" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="8" fill="rgba(55,138,221,0.2)"/>
+        <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
         <rect x="8" y="14" width="24" height="16" rx="3" stroke="#378ADD" stroke-width="1.5" fill="none"/>
         <path d="M14 14 V11 Q20 7 26 11 V14" stroke="#378ADD" stroke-width="1.5" fill="none"/>
         <circle cx="20" cy="22" r="3" fill="#378ADD"/>
@@ -663,19 +754,25 @@
       <a href="#contact" class="product-link">Learn more →</a>
     </div>
 
-    <div class="product-card">
-      <div class="product-num">03</div>
+    <!-- 04 — Apex Flow -->
+    <div class="product-card apex-flow">
+      <div class="product-num">04</div>
       <svg class="product-icon" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
-        <rect x="10" y="8" width="20" height="28" rx="4" stroke="#378ADD" stroke-width="1.5" fill="none"/>
-        <line x1="14" y1="16" x2="26" y2="16" stroke="#378ADD" stroke-width="1" stroke-linecap="round"/>
-        <line x1="14" y1="20" x2="22" y2="20" stroke="#378ADD" stroke-width="1" stroke-linecap="round"/>
-        <circle cx="20" cy="30" r="1.5" fill="#378ADD"/>
+        <rect width="40" height="40" rx="8" fill="rgba(14,168,122,0.12)"/>
+        <!-- Calendar/booking icon -->
+        <rect x="9" y="11" width="22" height="20" rx="2.5" stroke="#0EA87A" stroke-width="1.3" fill="none"/>
+        <line x1="9" y1="16" x2="31" y2="16" stroke="#0EA87A" stroke-width="1.3"/>
+        <line x1="14" y1="8" x2="14" y2="13" stroke="#0EA87A" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="26" y1="8" x2="26" y2="13" stroke="#0EA87A" stroke-width="1.3" stroke-linecap="round"/>
+        <!-- Checkmark / debit card hint -->
+        <rect x="14" y="21" width="12" height="7" rx="1.5" stroke="#0EA87A" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M17 24.5 L19 26.5 L23 23" stroke="#0EA87A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <div class="product-name">Claw<span class="sub">Deck</span></div>
-      <p class="product-desc">Native Android mission-control app for OpenClaw AI agents. Real-time monitoring, task management, and agent orchestration from your phone.</p>
-      <a href="#contact" class="product-link">Coming to Play Store →</a>
+      <div class="product-name">Apex <span class="sub" style="color:#0EA87A;">Flow</span></div>
+      <p class="product-desc">Zero-cost booking & payment automation for independent service providers — salons, massage, chiro, and med spas. Clients pay a small tech fee; providers keep the rest on an Apex-issued debit card.</p>
+      <a href="#contact" class="product-link" style="color:#0EA87A; opacity:0.7;">Coming soon →</a>
     </div>
+
   </div>
 </section>
 
@@ -694,7 +791,7 @@
     </div>
     <div class="about-stats reveal reveal-delay-1">
       <div class="stat-box">
-        <div class="stat-num">3<span>+</span></div>
+        <div class="stat-num">4<span>+</span></div>
         <div class="stat-label">Active products</div>
       </div>
       <div class="stat-box">
@@ -718,7 +815,7 @@
   <div class="section-tag reveal">Let's talk</div>
   <h2 class="section-title reveal reveal-delay-1">Start a <span class="accent">project</span></h2>
   <p class="section-body reveal reveal-delay-2">Have a project in mind? We'd love to hear about it. Reach out and let's build something worth building.</p>
-  <a href="mailto:damon@theapexworks.com" class="contact-email reveal reveal-delay-3">damon@theapexworks.com</a>
+  <a href="/cdn-cgi/l/email-protection#c3a7a2aeacad83b7aba6a2b3a6bbb4acb1a8b0eda0acae" class="contact-email reveal reveal-delay-3"><span class="__cf_email__" data-cfemail="a4c0c5c9cbcae4d0ccc1c5d4c1dcd3cbd6cfd78ac7cbc9">[email&#160;protected]</span></a>
 </section>
 
 <!-- FOOTER -->
@@ -739,17 +836,5 @@
   </span>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver((entries) => 
