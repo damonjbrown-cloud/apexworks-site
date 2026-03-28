@@ -792,6 +792,52 @@
     opacity: 0.4;
   }
 
+  /* ── PHOTO STRIP ── */
+  .photo-strip {
+    overflow: hidden;
+    background: var(--dark);
+    padding: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .photo-strip-track {
+    display: flex;
+    gap: 4px;
+    animation: photoScroll 35s linear infinite;
+    width: max-content;
+  }
+
+  .photo-strip:hover .photo-strip-track {
+    animation-play-state: paused;
+  }
+
+  .strip-img {
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .strip-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.4s ease, opacity 0.4s;
+    opacity: 0.85;
+  }
+
+  .strip-img:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  @keyframes photoScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -893,6 +939,29 @@
     <span class="marquee-item">Vivid Color</span>
     <span class="marquee-item">Paul Mitchell Focus Salon</span>
     <span class="marquee-item">Monroe, Washington</span>
+  </div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-track">
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/05/blonde-elegance.png" alt="Long California Blonde" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/05/ombre.png" alt="Subtle Soft Ombre" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/05/modern-bob.png" alt="Modern Lob" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/06/mens-cut.png" alt="Modern Mens Cut" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_1459-2-sqr.png" alt="Classic Honey Blonde" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_2404-2-sqr.png" alt="Sun Teased Brunette" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_2574-3-sqr.png" alt="Sun Kissed Ombre" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_7603-sqr.png" alt="Long Drive Faux Hawk" onerror="this.parentElement.style.display='none'"></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/05/blonde-elegance.png" alt="Long California Blonde" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/05/ombre.png" alt="Subtle Soft Ombre" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/05/modern-bob.png" alt="Modern Lob" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/06/mens-cut.png" alt="Modern Mens Cut" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_1459-2-sqr.png" alt="Classic Honey Blonde" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_2404-2-sqr.png" alt="Sun Teased Brunette" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_2574-3-sqr.png" alt="Sun Kissed Ombre" onerror="this.parentElement.style.display='none'"></div>
+    <div class="strip-img"><img src="http://wesleybrian.com/wp-content/uploads/2025/09/IMG_7603-sqr.png" alt="Long Drive Faux Hawk" onerror="this.parentElement.style.display='none'"></div>
   </div>
 </div>
 
