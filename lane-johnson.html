@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lane-Johnson Auto Family | Pacific Northwest's Premier Auto Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A2B4C;
+      --green:  #1E5631;
+      --gold:   #B8860B;
+      --gold-light: #D4A017;
+      --gold-pale:  #F0D080;
+      --cream:  #F7F3EC;
+      --charcoal: #1C1C1C;
+      --mid:    #4A4A4A;
+      --white:  #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--charcoal);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: rgba(10, 16, 30, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184,134,11,0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      color: var(--gold-pale);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--white); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-pale); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,16,30,0.55) 0%, rgba(10,16,30,0.3) 40%, rgba(10,16,30,0.75) 100%),
+        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1800&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 0 24px;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    /* ── SHIELD SVG ── */
+    .shield-wrap {
+      width: 200px;
+      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-pale);
+      opacity: 0.85;
+    }
+
+    .hero-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 800px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--gold-pale);
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.75);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn-gold {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--charcoal);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184,134,11,0.4);
+    }
+
+    .btn-outline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-pale);
+      background: rgba(184,134,11,0.08);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.5;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER ── */
+    .gold-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    /* ── STORY SECTION ── */
+    .story {
+      background: var(--cream);
+      color: var(--charcoal);
+      padding: 120px 48px;
+      text-align: center;
+    }
+
+    .story-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .story-body {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--mid);
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
+
+    .story-body strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    /* Heritage badges */
+    .heritage {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 56px;
+    }
+
+    .heritage-card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      padding: 36px 28px;
+      text-align: center;
+      border-top: 3px solid var(--gold);
+      background: var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    .heritage-year {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .heritage-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .heritage-desc {
+      font-size: 0.78rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* ── VALUE PROPS ── */
+    .values {
+      background: var(--navy);
+      padding: 100px 48px;
+      text-align: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      max-width: 1100px;
+      margin: 56px auto 0;
+      background: rgba(184,134,11,0.2);
+    }
+
+    .value-card {
+      background: rgba(26, 43, 76, 0.95);
+      padding: 52px 36px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .value-card:hover { background: rgba(26,43,76,1); }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .value-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-pale);
+      margin-bottom: 16px;
+      letter-spacing: 0.06em;
+    }
+
+    .value-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── LOCATIONS ── */
+    .locations {
+      background: #111820;
+      padding: 100px 48px;
+    }
+
+    .locations-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .locations-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .hub {
+      padding: 40px;
+      border: 1px solid rgba(184,134,11,0.2);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hub-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    .hub-north .hub-tag { background: var(--green); color: var(--white); }
+    .hub-south .hub-tag { background: var(--navy); color: var(--white); }
+
+    .hub-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold-pale);
+      margin-bottom: 8px;
+    }
+
+    .hub-heritage {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .store-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .store-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid rgba(184,134,11,0.3);
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .store-item:hover {
+      border-left-color: var(--gold);
+      background: rgba(184,134,11,0.05);
+    }
+
+    .store-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .hub-north .store-dot { background: var(--green); }
+    .hub-south .store-dot { background: #4A7BBF; }
+
+    .store-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .store-brand {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .hub-cta {
+      margin-top: 28px;
+    }
+
+    /* ── LEADERSHIP QUOTE ── */
+    .quote-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #0D1F3C 100%);
+      padding: 100px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-section::before {
+      content: '"';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 28rem;
+      color: rgba(184,134,11,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .quote-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+      font-weight: 400;
+      color: var(--white);
+      max-width: 780px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+      font-style: italic;
+      position: relative;
+    }
+
+    .quote-attribution {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      background: var(--cream);
+      color: var(--charcoal);
+      padding: 100px 48px;
+    }
+
+    .faq-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .faq-header { text-align: center; margin-bottom: 56px; }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(26,43,76,0.12);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 24px 0;
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    .faq-q:hover { color: var(--gold); }
+
+    .faq-arrow {
+      font-size: 1.1rem;
+      color: var(--gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.85;
+      font-weight: 400;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--gold) 0%, #8B6510 100%);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 0.9rem;
+      color: rgba(28,28,28,0.75);
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      background: var(--charcoal);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-dark:hover {
+      transform: translateY(-2px);
+      background: #333;
+    }
+
+    .btn-white {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      background: transparent;
+      color: var(--charcoal);
+      border: 2px solid var(--charcoal);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      background: rgba(0,0,0,0.08);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080E18;
+      padding: 56px 48px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(184,134,11,0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-pale);
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+
+    .footer-sub {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .footer-links a {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold-pale); }
+
+    .footer-copy {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-apex {
+      margin-top: 8px;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.12);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-apex a {
+      color: rgba(184,134,11,0.4);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .story, .values, .locations, .faq, .quote-section, .cta-banner { padding: 72px 24px; }
+      .hub-grid { grid-template-columns: 1fr; }
+      footer { padding: 48px 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">LANE<span>–</span>JOHNSON <span style="opacity:0.4;font-weight:400">AUTO FAMILY</span></a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#inventory" class="btn-gold" style="padding:8px 20px;font-size:0.65rem">Search Inventory</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+
+      <!-- Inline SVG Shield -->
+      <div class="shield-wrap">
+        <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#D4A017"/>
+              <stop offset="40%" style="stop-color:#F0D080"/>
+              <stop offset="100%" style="stop-color:#8B6510"/>
+            </linearGradient>
+            <linearGradient id="bronzePanel" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#9A7820"/>
+              <stop offset="100%" style="stop-color:#5A4010"/>
+            </linearGradient>
+            <clipPath id="shieldClip">
+              <path d="M100 8 L192 40 L192 130 Q192 195 100 222 Q8 195 8 130 L8 40 Z"/>
+            </clipPath>
+          </defs>
+
+          <!-- Outer gold border -->
+          <path d="M100 4 L196 38 L196 132 Q196 200 100 226 Q4 200 4 132 L4 38 Z"
+                fill="url(#goldBorder)" />
+
+          <!-- Inner shield base -->
+          <path d="M100 10 L190 42 L190 130 Q190 194 100 220 Q10 194 10 130 L10 42 Z"
+                fill="#1A2B4C" />
+
+          <!-- LJ panel (left, navy) -->
+          <rect x="10" y="10" width="90" height="95" fill="#1A2B4C" clip-path="url(#shieldClip)"/>
+
+          <!-- DL panel (right, green) -->
+          <rect x="100" y="10" width="90" height="95" fill="#1E5631" clip-path="url(#shieldClip)"/>
+
+          <!-- Center divider gold line -->
+          <line x1="100" y1="10" x2="100" y2="105" stroke="url(#goldBorder)" stroke-width="2"/>
+
+          <!-- Horizontal divider -->
+          <line x1="10" y1="105" x2="190" y2="105" stroke="url(#goldBorder)" stroke-width="1.5"/>
+
+          <!-- Mountain panel -->
+          <path d="M10 105 L190 105 L190 130 Q190 194 100 220 Q10 194 10 130 Z"
+                fill="url(#bronzePanel)" clip-path="url(#shieldClip)"/>
+
+          <!-- Mountains -->
+          <polygon points="50,105 80,130 20,130" fill="none" stroke="#D4A017" stroke-width="1.5" opacity="0.7"/>
+          <polygon points="100,105 140,135 60,135" fill="none" stroke="#D4A017" stroke-width="1.5" opacity="0.85"/>
+          <polygon points="148,105 172,128 124,128" fill="none" stroke="#D4A017" stroke-width="1.2" opacity="0.6"/>
+
+          <!-- Sun -->
+          <circle cx="100" cy="140" r="7" fill="#D4A017" opacity="0.9"/>
+          <line x1="100" y1="130" x2="100" y2="125" stroke="#D4A017" stroke-width="1" opacity="0.5"/>
+          <line x1="110" y1="133" x2="114" y2="129" stroke="#D4A017" stroke-width="1" opacity="0.5"/>
+          <line x1="90" y1="133" x2="86" y2="129" stroke="#D4A017" stroke-width="1" opacity="0.5"/>
+
+          <!-- Road -->
+          <path d="M86 220 L100 148 L114 220" fill="none" stroke="#D4A017" stroke-width="1" opacity="0.4"/>
+          <line x1="100" y1="155" x2="100" y2="163" stroke="#D4A017" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+          <line x1="100" y1="170" x2="100" y2="178" stroke="#D4A017" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+          <line x1="100" y1="185" x2="100" y2="193" stroke="#D4A017" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+
+          <!-- LJ text -->
+          <text x="55" y="85" text-anchor="middle" font-family="Georgia,serif" font-weight="bold"
+                font-size="34" fill="url(#goldBorder)" letter-spacing="-2">LJ</text>
+
+          <!-- DL text -->
+          <text x="143" y="85" text-anchor="middle" font-family="Georgia,serif" font-weight="bold"
+                font-size="28" fill="url(#goldBorder)" letter-spacing="-1">DL</text>
+
+          <!-- Tree icon -->
+          <polygon points="155,62 163,78 147,78" fill="#D4A017" opacity="0.7"/>
+          <polygon points="155,55 165,72 145,72" fill="#D4A017" opacity="0.5"/>
+          <rect x="153" y="78" width="4" height="5" fill="#D4A017" opacity="0.6"/>
+
+          <!-- Inner gold border line -->
+          <path d="M100 10 L190 42 L190 130 Q190 194 100 220 Q10 194 10 130 L10 42 Z"
+                fill="none" stroke="url(#goldBorder)" stroke-width="1.5" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <p class="hero-eyebrow">Established 2024 · Western Washington</p>
+      <h1 class="hero-headline">Two Families.<br><em>One Mission.</em><br>A Legacy of Service.</h1>
+      <p class="hero-sub">Welcoming a new era of automotive excellence across the Pacific Northwest — from Kirkland to Burlington and everywhere in between.</p>
+      <div class="hero-ctas">
+        <a href="#inventory" class="btn-gold">Search All Inventory</a>
+        <a href="#story" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+        <path d="M8 0v20M1 13l7 7 7-7" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="story-inner">
+      <p class="section-label">Our Story</p>
+      <div class="gold-rule" style="margin-bottom:28px"></div>
+      <h2 class="section-title">Rooted in the PNW.<br>Driven by Family.</h2>
+      <p class="story-body">
+        For decades, the names <strong>Lee Johnson</strong> and <strong>Dwayne Lane</strong> have stood for more than just car dealerships — they have represented a commitment to the communities of Western Washington. Today, we are proud to announce the formal union of these two legacies into the <strong>Lane-Johnson Auto Family</strong>.
+      </p>
+      <p class="story-body">
+        By combining our resources, we aren't just growing our inventory — we're expanding our ability to serve you. From the first turn of the key to the final service milestone, our mission remains the same: treating every customer like a member of our own family. Different names, different locations, but <strong>one shared standard of integrity</strong>.
+      </p>
+
+      <div class="gold-rule"></div>
+
+      <div class="heritage">
+        <div class="heritage-card">
+          <div class="heritage-year">1933</div>
+          <div class="heritage-name">Lee Johnson Auto Family</div>
+          <div class="heritage-desc">Founded in Kirkland as East Side Motors — 90+ years of family ownership across King & Snohomish Counties.</div>
+        </div>
+        <div class="heritage-card">
+          <div class="heritage-year" style="color:#1E5631">1954</div>
+          <div class="heritage-name">Dwayne Lane's Auto Family</div>
+          <div class="heritage-desc">70+ years serving Everett, Arlington, and Burlington with a "We'll Take Care of You" standard of service.</div>
+        </div>
+        <div class="heritage-card">
+          <div class="heritage-year" style="color:#B8860B">160+</div>
+          <div class="heritage-name">Combined Years of Trust</div>
+          <div class="heritage-desc">14 rooftops. 15+ brands. 500+ employees. One unified commitment to the Pacific Northwest.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPS -->
+  <section class="values" id="values">
+    <p class="section-label" style="color:var(--gold-pale)">Why Lane-Johnson</p>
+    <div class="gold-rule" style="margin-bottom:28px"></div>
+    <h2 class="section-title" style="color:var(--white)">What the Merger Means for You</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-icon">🚗</span>
+        <div class="value-title">Massive Selection</div>
+        <p class="value-desc">Access to 15+ brands and thousands of vehicles across the Puget Sound — new, certified pre-owned, and used — all in one family network.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🔧</span>
+        <div class="value-title">Unified Service</div>
+        <p class="value-desc">Certified technicians and honored warranties at any of our 14 locations. Your service history travels with you across the entire network.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🌲</span>
+        <div class="value-title">Community First</div>
+        <p class="value-desc">Doubling down on local schools, youth sports, and PNW charitable initiatives. More locations, more giving, same hometown heart.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locations" id="locations">
+    <div class="locations-inner">
+      <div class="locations-header">
+        <p class="section-label" style="color:var(--gold)">Our Locations</p>
+        <div class="gold-rule" style="margin-bottom:28px"></div>
+        <h2 class="section-title" style="color:var(--white)">The Network</h2>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;max-width:500px;margin:0 auto;line-height:1.7">Two heritage brands. One connected network. Find your closest Lane-Johnson location across Western Washington.</p>
+      </div>
+
+      <div class="hub-grid">
+        <!-- North Hub -->
+        <div class="hub hub-north">
+          <span class="hub-tag">North Hub</span>
+          <h3 class="hub-title">Dwayne Lane Heritage Stores</h3>
+          <p class="hub-heritage">Everett · Arlington · Burlington · Since 1954</p>
+          <ul class="store-list">
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Dwayne Lane's Auto Family — Everett</div>
+                <div class="store-brand">Chevrolet · Chrysler · Dodge · Ford · Jeep · Mazda · Ram · Subaru</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Dwayne Lane's Arlington Chevrolet</div>
+                <div class="store-brand">Chevrolet · Smokey Point Blvd, Arlington</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Dwayne Lane's Skagit Ford</div>
+                <div class="store-brand">Ford · Burlington, WA</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Dwayne Lane's Skagit Subaru</div>
+                <div class="store-brand">Subaru · Burlington, WA</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Dwayne Lane's Skagit Mazda</div>
+                <div class="store-brand">Mazda · Burlington, WA</div>
+              </div>
+            </li>
+          </ul>
+          <div class="hub-cta">
+            <a href="https://www.dwaynelane.com" target="_blank" class="btn-outline" style="display:inline-block;font-size:0.65rem;padding:12px 28px">Visit Dwayne Lane →</a>
+          </div>
+        </div>
+
+        <!-- South Hub -->
+        <div class="hub hub-south">
+          <span class="hub-tag">South Hub</span>
+          <h3 class="hub-title">Lee Johnson Heritage Stores</h3>
+          <p class="hub-heritage">Kirkland · Seattle · Everett · Monroe · Bothell · Lake Stevens · Since 1933</p>
+          <ul class="store-list">
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Lee Johnson Chevrolet — Kirkland</div>
+                <div class="store-brand">Chevrolet · Flagship Store Since 1933</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Lee Johnson Mazda of Kirkland</div>
+                <div class="store-brand">Mazda · Kirkland, WA</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Lee Johnson Kia — Kirkland</div>
+                <div class="store-brand">Kia · Kirkland, WA</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Lee Johnson Mazda of Seattle</div>
+                <div class="store-brand">Mazda · Seattle, WA</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Hyundai of Everett · Genesis of Everett</div>
+                <div class="store-brand">Hyundai · Genesis · Everett, WA</div>
+              </div>
+            </li>
+            <li class="store-item">
+              <span class="store-dot"></span>
+              <div>
+                <div class="store-name">Autoright Motors — Lake Stevens &amp; Bothell</div>
+                <div class="store-brand">Pre-Owned · RV · Multi-Brand</div>
+              </div>
+            </li>
+          </ul>
+          <div class="hub-cta">
+            <a href="https://www.leejohnson.com" target="_blank" class="btn-outline" style="display:inline-block;font-size:0.65rem;padding:12px 28px">Visit Lee Johnson →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <p class="quote-text">
+      "This isn't about corporate consolidation — it's about family collaboration. We've been friends and competitors for years. Now, we're teammates."
+    </p>
+    <p class="quote-attribution">— Leadership, Lane-Johnson Auto Family</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <p class="section-label">Customer Questions</p>
+        <div class="gold-rule" style="margin-bottom:28px"></div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will the dealership names on the buildings change?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">No. The individual franchise signs (Lee Johnson Chevrolet, Dwayne Lane's Ford, etc.) remain as-is to maintain OEM compliance and the local identity you know. The Lane-Johnson Auto Family name represents the unified group — it's the umbrella above the brands you already trust.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will my existing service contract still be honored?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Absolutely. All existing service contracts, warranties, and maintenance agreements are fully honored across the entire Lane-Johnson network. In fact, you now have more locations where you can get your vehicle serviced under your existing plan.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I service my Lee Johnson vehicle at a Dwayne Lane location (and vice versa)?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">For brand-specific warranty work, you'll still need to visit a certified location for that manufacturer. However, for general maintenance and many repairs, our network shares resources and your service history is accessible across all Lane-Johnson locations.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Are prices and deals changing because of the merger?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Our competitive pricing philosophy hasn't changed — in fact, the expanded network gives us greater buying power and inventory access, which means better selection and value for you. Each location continues to honor manufacturer incentives and group-wide specials.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is this still a locally owned, family business?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Yes — 100%. Lane-Johnson Auto Family is the combination of two locally owned, family-operated businesses. No outside corporate ownership, no private equity. The Johnson family and the Lane family are still at the helm, and that's not changing.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will staff be changing at my local dealership?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">We are committed to retaining the teams that have built these relationships over decades. The people you know and trust at your local store are staying. This merger is about growth, not reduction.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" id="inventory">
+    <h2>Find Your Next Vehicle</h2>
+    <p>Browse thousands of new and pre-owned vehicles across all 14 Lane-Johnson locations — one search, the entire network.</p>
+    <div class="cta-row">
+      <a href="https://www.leejohnson.com" target="_blank" class="btn-dark">Lee Johnson Inventory</a>
+      <a href="https://www.dwaynelane.com" target="_blank" class="btn-white">Dwayne Lane Inventory</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">LANE–JOHNSON AUTO FAMILY</div>
+    <div class="footer-sub">Western Washington's Premier Auto Group · Est. 2024</div>
+    <div class="footer-links">
+      <a href="#story">Our Story</a>
+      <a href="https://www.leejohnson.com" target="_blank">Lee Johnson</a>
+      <a href="https://www.dwaynelane.com" target="_blank">Dwayne Lane</a>
+      <a href="#locations">Locations</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-copy">© 2024 Lane-Johnson Auto Family. All rights reserved.</div>
+    <div class="footer-apex">Hub concept designed by <a href="https://theapexworks.com" target="_blank">Apex Works</a></div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Subtle scroll fade-in for sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.heritage-card, .value-card, .hub, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
