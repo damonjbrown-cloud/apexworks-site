@@ -48,6 +48,8 @@
     { "src": "/terms", "dest": "/terms.html" },
     { "src": "/sms", "dest": "/sms.html" },
     { "src": "/snapshot", "dest": "/snapshot.html" },
+    { "src": "/site-care", "dest": "/site-care.html" },
+    { "src": "/ai-optimization", "dest": "/ai-optimization.html" },
     { "src": "/privacy/?", "status": 308, "headers": { "Location": "/privacy-policy" } },
     { "src": "/(.*)", "dest": "/$1" }
   ]
