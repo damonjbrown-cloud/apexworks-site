@@ -249,6 +249,25 @@ test('storage and hook failures still return empty TwiML', async () => {
   assert.equal(res.body, EMPTY_TWIML);
 });
 
+test('SNAPSHOT is handled exactly like START', async () => {
+  const expected = `<?xml version="1.0" encoding="UTF-8"?><Response><Message>${handler.OPT_IN_CONFIRMATION.replace(/&/g, '&amp;')}</Message></Response>`;
+  for (const body of ['SNAPSHOT', 'snapshot', '  Snapshot  ', 'START', 'start', ' Start ']) {
+    const res = await post(baseParams({ Body: body, MessageSid: `SM_${body.trim()}` }));
+    assert.equal(res.statusCode, 200);
+    assert.equal(res.headers['content-type'], 'text/xml');
+    assert.equal(res.body, expected);
+  }
+});
+
+test('STOP and HELP stay empty TwiML so Twilio can send its defaults', async () => {
+  for (const body of ['STOP', 'stop', 'HELP', 'help', ' Stop ']) {
+    const res = await post(baseParams({ Body: body, MessageSid: `SM_${body.trim()}` }));
+    assert.equal(res.statusCode, 200);
+    assert.equal(res.body, EMPTY_TWIML);
+    assert.doesNotMatch(res.body, /<Message/);
+  }
+});
+
 test('non-POST is rejected', async () => {
   const res = mockRes();
   await handler({ method: 'GET', url: '/api/sms', headers: {} }, res);

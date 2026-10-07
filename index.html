@@ -210,13 +210,16 @@
   .footer-wordmark { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: var(--muted); }
   .footer-wordmark span { color: var(--electric); }
   .footer-copy, .footer-loc { font-size: 14px; color: var(--muted); }
+  .footer-legal { display: flex; flex-wrap: wrap; align-items: center; }
+  .footer-legal a { color: var(--link); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
+  .footer-legal span { color: var(--muted); }
   @media (min-width: 800px) {
     nav { padding: 20px 48px; }
     .hero, section { padding-left: 48px; padding-right: 48px; }
     .cards { grid-template-columns: 1fr 1fr 1fr; }
     .product-grid { grid-template-columns: repeat(3, 1fr); }
     .about-grid { grid-template-columns: 1.2fr 1fr; align-items: center; }
-    footer { flex-direction: row; justify-content: space-between; align-items: center; padding: 28px 48px; }
+    footer { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 28px 48px; }
   }
 </style>
 </head>
@@ -355,7 +358,7 @@
           <path d="M28 20l2 2 4-4" stroke="#2ecc71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3 class="product-name">Apex <span class="sub">Flow</span></h3>
-        <p class="product-desc">The automated front desk for independent service businesses. Booking, payments, review automation, and win-back SMS — for salons, clinics, and more.</p>
+        <p class="product-desc">The automated front desk for independent service businesses. Booking, payments, review automation, and win-back SMS (coming soon, not part of Apex Works texting) — for salons, clinics, and more.</p>
         <a href="/apex-flow" class="product-link">Join the waitlist →</a>
       </article>
       <article class="product-card">
@@ -425,6 +428,7 @@
   </a>
   <p class="footer-copy">© 2026 Apex Works. All rights reserved.</p>
   <p class="footer-loc">Monroe, WA</p>
+  <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
 </footer>
 </body>
 </html>

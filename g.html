@@ -20,9 +20,38 @@
     object-fit: contain;
     background: #000;
   }
+  .footer-legal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #07101F;
+  }
+  .footer-legal a {
+    color: #5BA8E8;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 6px;
+  }
+  .footer-legal span { color: #C5D4E4; }
 </style>
 </head>
 <body>
 <img src="/g.jpg" alt="">
+<footer>
+  <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
+</footer>
 </body>
 </html>
