@@ -36,6 +36,9 @@
   a { color: var(--electric); text-decoration: none; }
   footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 24px 48px; display: flex; justify-content: space-between; }
   .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+  .footer-legal { display: flex; flex-wrap: wrap; align-items: center; }
+  .footer-legal a { color: #5BA8E8; font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
+  .footer-legal span { color: #C5D4E4; }
   @media (max-width: 768px) { nav { padding: 16px 24px; } .content { padding: 60px 24px 80px; } footer { padding: 20px 24px; flex-direction: column; gap: 8px; } }
 </style>
 </head>
@@ -63,7 +66,7 @@
 
   <h2>3. SMS Communications</h2>
   <p>Apex Works (theapexworks.com) uses text messages to reply to people who contact us about Apex Site Snapshot and related website services for local businesses in Washington. Messages are replies to Site Snapshot inquiries.</p>
-  <p>To opt in, text START to (425) 217-3284. You may also receive texts if you asked us to text you or gave us your number and agreed to receive texts. Message frequency varies. Message and data rates may apply.</p>
+  <p>To opt in, text SNAPSHOT (or START) to (425) 217-3284. The only way to opt in is to text SNAPSHOT or START to (425) 217-3284. Message frequency varies. Message and data rates may apply.</p>
   <p>Reply STOP to cancel. Reply HELP for help. For support, email <a href="mailto:damon@theapexworks.com">damon@theapexworks.com</a>. Carriers are not liable for delayed or undelivered messages.</p>
   <p>We do not sell, rent, or share mobile phone numbers with third parties or affiliates for marketing or promotional purposes. Text messaging opt-in data and consent will not be shared with any third parties.</p>
   <p>See our <a href="/sms">Text Messaging</a> page and <a href="/privacy-policy">Privacy Policy</a>.</p>
@@ -103,6 +106,7 @@
 <footer>
   <span class="footer-copy">© 2026 Apex Works · Monroe, WA</span>
   <span class="footer-copy">Apex Works Terms & Conditions</span>
+  <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms" aria-current="page">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
 </footer>
 </body>
 </html>

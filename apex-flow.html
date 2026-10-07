@@ -411,6 +411,9 @@
   }
 
   .footer-back:hover { color: var(--electric); }
+  .footer-legal { display: flex; flex-wrap: wrap; align-items: center; }
+  .footer-legal a { color: #5BA8E8; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
+  .footer-legal span { color: #C5D4E4; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -559,6 +562,7 @@
 <footer>
   <span class="footer-copy">© 2026 Apex Works · Monroe, WA</span>
   <a href="/" class="footer-back">← Back to theapexworks.com</a>
+  <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
 </footer>
 
 <script>

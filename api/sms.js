@@ -6,6 +6,7 @@ const twilio = require('twilio');
 // be validated against anything else.
 const PUBLIC_WEBHOOK_URL = 'https://theapexworks.com/api/sms';
 const EMPTY_TWIML = '<?xml version="1.0" encoding="UTF-8"?><Response/>';
+const OPT_IN_CONFIRMATION = "Apex Works: You're signed up for Site Snapshot texts about your questions, scheduling and report status. Msg frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to cancel.";
 const DEFAULT_SUPABASE_URL = 'https://kolahmdxqsgnfljuaquz.supabase.co';
 const EMAIL_TO = 'damon@theapexworks.com';
 
@@ -263,6 +264,23 @@ async function processInbound(message) {
   await forwardHook(message);
 }
 
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function isOptInKeyword(body) {
+  const word = String(body || '').trim().toUpperCase();
+  return word === 'SNAPSHOT' || word === 'START';
+}
+
+function twimlForBody(body) {
+  if (!isOptInKeyword(body)) return EMPTY_TWIML;
+  return `<?xml version="1.0" encoding="UTF-8"?><Response><Message>${escapeXml(OPT_IN_CONFIRMATION)}</Message></Response>`;
+}
+
 function forbidden(res) {
   res.statusCode = 403;
   res.setHeader('Content-Type', 'text/plain');
@@ -324,9 +342,11 @@ async function handler(req, res) {
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/xml');
-  res.end(EMPTY_TWIML);
+  res.end(twimlForBody(params.Body || ''));
 }
 
 module.exports = handler;
 module.exports.PUBLIC_WEBHOOK_URL = PUBLIC_WEBHOOK_URL;
 module.exports.validationUrl = validationUrl;
+module.exports.isOptInKeyword = isOptInKeyword;
+module.exports.OPT_IN_CONFIRMATION = OPT_IN_CONFIRMATION;

@@ -111,6 +111,9 @@
   main a, footer a { text-decoration:underline; text-underline-offset:.15em; font-weight:700; }
   footer { border-top:1px solid var(--border); padding:24px 20px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
   .footer-copy { font-size:14px; }
+  .footer-legal { display:flex; flex-wrap:wrap; align-items:center; }
+  .footer-legal a { color:var(--link); font-size:14px; font-weight:700; text-decoration:underline; text-underline-offset:.15em; display:inline-flex; align-items:center; justify-content:center; min-height:48px; min-width:48px; padding:0 6px; }
+  .footer-legal span { color:var(--muted); font-weight:400; }
   @media (min-width:768px) { nav[aria-label="Primary"], footer { padding-left:48px; padding-right:48px; } main { padding:48px 48px 96px; } }
 </style>
 </head>
@@ -169,6 +172,7 @@
 <footer>
   <p class="footer-copy">© 2026 Apex Works. Monroe, WA.</p>
   <p class="footer-copy"><a href="mailto:damon@theapexworks.com">damon@theapexworks.com</a></p>
+  <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
 </footer>
 </body>
 </html>

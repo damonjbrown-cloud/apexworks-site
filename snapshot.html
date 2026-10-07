@@ -241,12 +241,15 @@
   .footer-wordmark { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: var(--muted); }
   .footer-wordmark span { color: var(--electric); }
   .footer-copy, .footer-loc { font-size: 14px; color: var(--muted); }
+  .footer-legal { display: flex; flex-wrap: wrap; align-items: center; }
+  .footer-legal a { color: var(--link); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
+  .footer-legal span { color: var(--muted); }
   @media (min-width: 768px) {
     nav[aria-label="Primary"] { padding: 20px 48px; }
     .nav-mark { width: 36px; height: 36px; }
     main { padding: 48px 48px 96px; }
     .buy { width: auto; display: inline-block; padding: 16px 32px; }
-    footer { flex-direction: row; justify-content: space-between; padding: 28px 48px; text-align: left; }
+    footer { flex-direction: row; flex-wrap: wrap; justify-content: space-between; padding: 28px 48px; text-align: left; }
   }
 </style>
 </head>
@@ -373,6 +376,7 @@
   </a>
   <p class="footer-copy">© 2026 Apex Works. All rights reserved.</p>
   <p class="footer-loc">Monroe, WA</p>
+  <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
 </footer>
 </body>
 </html>

@@ -707,6 +707,10 @@
       text-decoration: none;
     }
 
+    .footer-legal { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; margin-top: 16px; }
+    .footer-legal a { color: #E6F1FB; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
+    .footer-legal span { color: #C5D4E4; font-size: 14px; letter-spacing: 0; text-transform: none; }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -1536,6 +1540,7 @@
     </div>
     <div class="footer-copy">© 2024 Lane-Johnson Auto Family. All rights reserved.</div>
     <div class="footer-apex">Hub concept designed by <a href="https://theapexworks.com" target="_blank">Apex Works</a></div>
+    <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
   </footer>
 
   <script>
