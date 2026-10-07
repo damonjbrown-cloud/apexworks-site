@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/privacy", "destination": "/privacy-policy", "permanent": true },
+    { "source": "/privacy/", "destination": "/privacy-policy", "permanent": true }
+  ],
   "routes": [
     { "src": "/api/sms/?", "methods": ["POST"], "dest": "/api/sms.js" },
     { "src": "/wesleybrian", "dest": "/wesleybrian.html" },
@@ -7,6 +11,7 @@
     { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
     { "src": "/terms", "dest": "/terms.html" },
     { "src": "/sms", "dest": "/sms.html" },
+    { "src": "/privacy/?", "status": 308, "headers": { "Location": "/privacy-policy" } },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
