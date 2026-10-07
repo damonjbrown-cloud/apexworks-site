@@ -11,6 +11,7 @@
     { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
     { "src": "/terms", "dest": "/terms.html" },
     { "src": "/sms", "dest": "/sms.html" },
+    { "src": "/snapshot", "dest": "/snapshot.html" },
     { "src": "/privacy/?", "status": 308, "headers": { "Location": "/privacy-policy" } },
     { "src": "/(.*)", "dest": "/$1" }
   ]

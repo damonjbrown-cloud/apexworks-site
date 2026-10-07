@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get more calls from Google — Apex Site Snapshot</title>
+<meta name="description" content="A $499 website audit for Washington local businesses. Plain-English score, the fixes that bring in the most calls, and a 20-minute Zoom walkthrough.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #07101F;
+    --midnight: #0C2340;
+    --blue: #185FA5;
+    --electric: #378ADD;
+    --white: #ffffff;
+    --muted: #4A6A8A;
+    --border: rgba(55, 138, 221, 0.2);
+  }
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.3;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7, 16, 31, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-mark { width: 28px; height: 28px; flex: none; }
+  .nav-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.06em; color: var(--white); }
+  .nav-wordmark span { color: var(--electric); }
+  .nav-back { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; }
+  .nav-back:hover { color: var(--electric); }
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 20px 72px;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 11vw, 64px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .sub {
+    font-size: 18px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 22px;
+    max-width: 28em;
+  }
+  .buy {
+    display: block;
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 3px;
+  }
+  .buy:hover { background: var(--electric); }
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 40px 0 16px;
+  }
+  ul { list-style: none; }
+  li {
+    position: relative;
+    padding: 0 0 14px 22px;
+    font-size: 17px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.78);
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    background: var(--electric);
+  }
+  .timing {
+    margin-top: 8px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.78);
+  }
+  .contact {
+    margin-top: 28px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+  }
+  .contact a { color: var(--electric); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .buy-bottom { margin-top: 28px; }
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+  .footer-wordmark span { color: var(--electric); }
+  .footer-copy, .footer-loc { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
+  @media (min-width: 768px) {
+    nav { padding: 20px 48px; }
+    .nav-mark { width: 36px; height: 36px; }
+    main { padding: 56px 48px 100px; }
+    .buy { width: auto; display: inline-block; padding: 16px 32px; }
+    footer { flex-direction: row; justify-content: space-between; padding: 32px 48px; text-align: left; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">
+    <svg class="nav-mark" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="8" fill="#185FA5"/>
+      <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
+      <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
+    </svg>
+    <span class="nav-wordmark">APEX <span>WORKS</span></span>
+  </a>
+  <a href="/" class="nav-back">← Home</a>
+</nav>
+
+<main>
+  <div class="tag">Apex Site Snapshot</div>
+  <h1>Get more calls from Google.</h1>
+  <p class="sub">$499 website audit for Washington local businesses.</p>
+  <a class="buy" href="https://buy.stripe.com/cNieVf0KFcYJffUfBQcMM00">Buy the $499 Snapshot</a>
+
+  <h2>What you get</h2>
+  <ul>
+    <li>A plain-English score of your website and Google presence</li>
+    <li>Top fixes, ranked by what brings in the most calls</li>
+    <li>A check on whether AI tools like ChatGPT and Google's AI answers can recommend you</li>
+    <li>A 20-minute Zoom walkthrough</li>
+    <li>Step-by-step instructions for your web person, or we can make the changes for you</li>
+  </ul>
+  <p class="timing">Your report arrives in about 48 hours after payment.</p>
+  <a class="buy buy-bottom" href="https://buy.stripe.com/cNieVf0KFcYJffUfBQcMM00">Buy the $499 Snapshot</a>
+  <p class="contact">Questions? Email <a href="mailto:damon@theapexworks.com">damon@theapexworks.com</a></p>
+</main>
+
+<footer>
+  <div class="footer-logo">
+    <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="8" fill="#185FA5"/>
+      <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
+      <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
+    </svg>
+    <span class="footer-wordmark">APEX <span>WORKS</span></span>
+  </div>
+  <span class="footer-copy">© 2026 Apex Works. All rights reserved.</span>
+  <span class="footer-loc">Monroe, WA</span>
+</footer>
+</body>
+</html>
