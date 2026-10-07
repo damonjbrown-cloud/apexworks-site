@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "routes": [
+    { "src": "/api/sms/?", "methods": ["POST"], "dest": "/api/sms.js" },
     { "src": "/wesleybrian", "dest": "/wesleybrian.html" },
     { "src": "/apex-flow", "dest": "/apex-flow.html" },
     { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
