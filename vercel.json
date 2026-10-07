@@ -6,6 +6,7 @@
     { "src": "/apex-flow", "dest": "/apex-flow.html" },
     { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
     { "src": "/terms", "dest": "/terms.html" },
+    { "src": "/sms", "dest": "/sms.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
