@@ -1,0 +1,10 @@
+{
+  "name": "apexworks-site",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "twilio": "^5.10.4"
+  }
+}
