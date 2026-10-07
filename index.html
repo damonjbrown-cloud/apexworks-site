@@ -69,6 +69,12 @@
   .nav-links a:hover { color: var(--electric); }
   .nav-cta { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--electric) !important; border: 1px solid var(--border); padding: 8px 20px; border-radius: 3px; transition: background 0.2s, border-color 0.2s !important; }
   .nav-cta:hover { background: rgba(55,138,221,0.1) !important; border-color: var(--electric) !important; color: var(--white) !important; }
+  .nav-snapshot { display: none; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--electric); text-decoration: none; border: 1px solid var(--border); padding: 8px 12px; border-radius: 3px; white-space: nowrap; }
+  .nav-snapshot:hover { background: rgba(55,138,221,0.1); border-color: var(--electric); color: var(--white); }
+
+  .snapshot-callout { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; background: rgba(12, 35, 64, 0.72); }
+  .snapshot-callout a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(22px, 5vw, 34px); line-height: 1.15; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); text-decoration: none; border-bottom: 2px solid var(--electric); }
+  .snapshot-callout a:hover { color: var(--electric); }
 
   .hero {
     position: relative; z-index: 1;
@@ -182,6 +188,7 @@
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .nav-snapshot { display: inline-flex; }
     .hero { padding: 120px 24px 60px; }
     section { padding: 72px 24px; }
     .products-header { grid-template-columns: 1fr; gap: 32px; }
@@ -204,9 +211,11 @@
     </svg>
     <span class="nav-wordmark">APEX <span>WORKS</span></span>
   </a>
+  <a href="/snapshot" class="nav-snapshot">Snapshot</a>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="/snapshot">Snapshot</a></li>
     <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
 </nav>
@@ -230,6 +239,10 @@
     <div class="scroll-line"></div>
     Scroll
   </div>
+</section>
+
+<section class="snapshot-callout">
+  <a href="/snapshot">$499 Site Snapshot: get more calls from Google</a>
 </section>
 
 <section class="products" id="products">
