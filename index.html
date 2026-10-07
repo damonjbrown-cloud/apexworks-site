@@ -3,366 +3,428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apex Works — Technology & Media Studio</title>
-<meta name="description" content="Apex Works is a Monroe, WA technology and media studio building premium digital products, AI automation tools, and immersive brand experiences.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<title>Apex Works | Website Audits, SEO &amp; AI Optimization | Monroe, WA</title>
+<meta name="description" content="Apex Works does website audits for Washington businesses from Monroe, WA. We help local companies show up on Google and in AI answers like ChatGPT. Start with a $499 Site Snapshot.">
+<link rel="canonical" href="https://theapexworks.com/">
+<meta name="theme-color" content="#07101F">
+<meta property="og:title" content="Apex Works | Website Audits, SEO &amp; AI Optimization | Monroe, WA">
+<meta property="og:description" content="Apex Works does website audits for Washington businesses from Monroe, WA. We help local companies show up on Google and in AI answers like ChatGPT. Start with a $499 Site Snapshot.">
+<meta property="og:url" content="https://theapexworks.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://theapexworks.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apex Works logo on a navy background">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apex Works | Website Audits, SEO &amp; AI Optimization | Monroe, WA">
+<meta name="twitter:description" content="Apex Works does website audits for Washington businesses from Monroe, WA. We help local companies show up on Google and in AI answers like ChatGPT. Start with a $499 Site Snapshot.">
+<meta name="twitter:image" content="https://theapexworks.com/og.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://theapexworks.com/#organization",
+      "name": "Apex Works",
+      "url": "https://theapexworks.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://theapexworks.com/logo.png"
+      },
+      "image": "https://theapexworks.com/og.png",
+      "email": "damon@theapexworks.com",
+      "areaServed": {
+        "@type": "State",
+        "name": "Washington"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Monroe",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      },
+      "knowsAbout": [
+        "website audits",
+        "local SEO",
+        "Google Business Profile",
+        "AI search optimization"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://theapexworks.com/#website",
+      "url": "https://theapexworks.com/",
+      "name": "Apex Works",
+      "description": "Website audits for Washington businesses, plus Google search and AI answer optimization.",
+      "publisher": { "@id": "https://theapexworks.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theapexworks.com/#webpage",
+      "url": "https://theapexworks.com/",
+      "name": "Apex Works | Website Audits, SEO & AI Optimization | Monroe, WA",
+      "description": "Apex Works does website audits for Washington businesses from Monroe, WA. We help local companies show up on Google and in AI answers like ChatGPT. Start with a $499 Site Snapshot.",
+      "isPartOf": { "@id": "https://theapexworks.com/#website" },
+      "about": { "@id": "https://theapexworks.com/#organization" },
+      "inLanguage": "en-US",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://theapexworks.com/og.png"
+      }
+    }
+  ]
+}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --navy:    #07101F;
-    --midnight:#0C2340;
-    --blue:    #185FA5;
-    --electric:#378ADD;
-    --ice:     #E6F1FB;
-    --cloud:   #F0F4F9;
-    --white:   #ffffff;
-    --muted:   #4A6A8A;
-    --border:  rgba(55, 138, 221, 0.2);
+    --navy: #07101F;
+    --midnight: #0C2340;
+    --blue: #185FA5;
+    --electric: #378ADD;
+    --link: #5BA8E8;
+    --white: #ffffff;
+    --text: #E7EEF6;
+    --muted: #C5D4E4;
+    --border: rgba(55, 138, 221, 0.2);
+    --font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --display: "Arial Narrow", "Helvetica Neue", system-ui, sans-serif;
   }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--navy);
-    color: var(--white);
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-    cursor: default;
+    color: var(--text);
+    font-family: var(--font);
+    font-weight: 400;
+    line-height: 1.6;
   }
-
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
+    opacity: 0.35;
   }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: 12px;
+    z-index: 200;
+    transform: translateY(-150%);
+    background: var(--white);
+    color: var(--navy);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 3px;
+  }
+  .skip-link:focus { transform: none; }
+  :focus-visible { outline: 2px solid #E6F1FB; outline-offset: 3px; }
+  header, main, footer { position: relative; z-index: 1; }
+  header {
+    position: sticky;
+    top: 0;
     z-index: 100;
+    background: rgba(7, 16, 31, 0.96);
+    border-bottom: 1px solid var(--border);
+  }
+  nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 48px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(7, 16, 31, 0.85);
-    backdrop-filter: blur(12px);
+    gap: 12px 24px;
+    padding: 16px 20px;
   }
-
-  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
   .nav-mark { width: 36px; height: 36px; }
-  .nav-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.06em; color: var(--white); }
+  .nav-wordmark { font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: 0.06em; }
   .nav-wordmark span { color: var(--electric); }
-  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-  .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--electric); }
-  .nav-cta { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--electric) !important; border: 1px solid var(--border); padding: 8px 20px; border-radius: 3px; transition: background 0.2s, border-color 0.2s !important; }
-  .nav-cta:hover { background: rgba(55,138,221,0.1) !important; border-color: var(--electric) !important; color: var(--white) !important; }
-  .nav-snapshot { display: none; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--electric); text-decoration: none; border: 1px solid var(--border); padding: 8px 12px; border-radius: 3px; white-space: nowrap; }
-  .nav-snapshot:hover { background: rgba(55,138,221,0.1); border-color: var(--electric); color: var(--white); }
-
-  .snapshot-callout { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; background: rgba(12, 35, 64, 0.72); }
-  .snapshot-callout a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(22px, 5vw, 34px); line-height: 1.15; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); text-decoration: none; border-bottom: 2px solid var(--electric); }
-  .snapshot-callout a:hover { color: var(--electric); }
-
-  .hero {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 48px 80px;
-    overflow: hidden;
-  }
-
-  .hero-glow {
-    position: absolute; top: 10%; left: 50%; transform: translateX(-30%);
-    width: 700px; height: 700px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(24,95,165,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--electric); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
-  .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--electric); }
-
-  h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(64px, 9vw, 120px); line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; max-width: 900px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
-  h1 .accent { color: var(--electric); }
-  h1 .outline { -webkit-text-stroke: 2px rgba(255,255,255,0.25); color: transparent; }
-
-  .hero-sub { font-size: clamp(16px, 2vw, 20px); font-weight: 300; color: rgba(255,255,255,0.55); max-width: 520px; line-height: 1.6; margin-top: 32px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
-
-  .hero-actions { display: flex; align-items: center; gap: 20px; margin-top: 48px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s; }
-
-  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 14px 28px; border-radius: 3px; transition: background 0.2s, transform 0.15s; }
-  .btn-primary:hover { background: var(--electric); transform: translateY(-1px); }
-
-  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 400; letter-spacing: 0.04em; text-decoration: none; transition: color 0.2s; }
-  .btn-secondary:hover { color: var(--electric); }
-
-  .hero-scroll { position: absolute; bottom: 40px; left: 48px; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); opacity: 0; animation: fadeUp 0.8s ease forwards 1.2s; }
-  .scroll-line { width: 40px; height: 1px; background: rgba(255,255,255,0.2); position: relative; overflow: hidden; }
-  .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--electric); animation: scrollLine 2s ease infinite 1.5s; }
-
-  section { position: relative; z-index: 1; padding: 100px 48px; }
-
-  .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-  .section-tag::before { content: ''; width: 20px; height: 1px; background: var(--electric); }
-
-  .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; margin-bottom: 16px; }
-  .section-title .accent { color: var(--electric); }
-
-  .section-body { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 560px; }
-
-  .products { border-top: 1px solid var(--border); }
-
-  .products-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
-
-  /* 3-column grid for products */
-  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-
-  .product-card { background: var(--navy); padding: 40px 32px; transition: background 0.3s; position: relative; overflow: hidden; }
-  .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--blue); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
-  .product-card:hover { background: var(--midnight); }
-  .product-card:hover::before { transform: scaleX(1); }
-
-  .product-card.featured { background: var(--midnight); border-left: 2px solid var(--electric); }
-  .product-card.featured::before { transform: scaleX(1); background: var(--electric); }
-
-  /* Apex Flow card — green accent */
-  .product-card.apex-flow { background: rgba(7,30,15,0.6); border-left: 2px solid #2ecc71; }
-  .product-card.apex-flow::before { transform: scaleX(1); background: #2ecc71; }
-  .product-card.apex-flow .product-name .sub { color: #2ecc71; }
-  .product-card.apex-flow .product-link { color: #2ecc71; }
-  .product-card.apex-flow .product-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #2ecc71; background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.25); padding: 4px 10px; border-radius: 2px; margin-bottom: 16px; }
-
-  .product-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 24px; }
-  .product-icon { width: 40px; height: 40px; margin-bottom: 20px; }
-  .product-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+  .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; list-style: none; }
+  .nav-links a { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 2px; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { color: var(--white) !important; border: 1px solid var(--electric); padding: 8px 16px; border-radius: 3px; }
+  .hero { padding: 48px 20px 32px; max-width: 880px; }
+  .hero-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--electric); margin-bottom: 16px; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.02em; color: var(--white); max-width: 16ch; }
+  .hero-sub { font-size: 18px; color: var(--muted); max-width: 42rem; margin-top: 20px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; align-items: center; }
+  .btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; background: var(--blue); color: var(--white); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; padding: 14px 22px; border-radius: 3px; text-align: center; }
+  .btn-primary:hover { background: #1d6ec4; }
+  .btn-secondary { display: inline-flex; align-items: center; min-height: 48px; color: var(--muted); font-weight: 600; text-decoration: none; }
+  .btn-secondary:hover { color: var(--white); }
+  section { padding: 56px 20px; border-top: 1px solid var(--border); }
+  .wrap { max-width: 880px; }
+  .section-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--electric); margin-bottom: 12px; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 4vw, 42px); line-height: 1.1; letter-spacing: -0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
+  h2 .accent { color: var(--electric); }
+  h3 { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--white); margin: 22px 0 8px; }
+  p, li { font-size: 17px; color: var(--muted); }
+  p + p { margin-top: 14px; }
+  a { color: var(--link); }
+  .prose a:not(.btn-primary), .card a, .product-link { text-decoration: underline; text-underline-offset: 0.15em; }
+  .product-link, .nav-links a, .btn-secondary, .contact-email { color: var(--link); }
+  .prose { max-width: 42rem; }
+  .cards { display: grid; gap: 16px; margin-top: 8px; }
+  .card { background: var(--midnight); border: 1px solid var(--border); border-radius: 4px; padding: 20px; }
+  .card p { margin-top: 0; }
+  .steps { list-style: none; counter-reset: step; }
+  .steps li { counter-increment: step; padding: 8px 0 8px 0; }
+  .steps h3::before { content: counter(step) ". "; color: var(--electric); }
+  .snapshot-cta { margin-top: 24px; }
+  .products-header { margin-bottom: 28px; }
+  .product-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .product-card { background: var(--navy); padding: 28px 22px; }
+  .product-card.featured { background: var(--midnight); }
+  .product-card.apex-flow { background: #071E0F; }
+  .product-num { font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: var(--muted); margin-bottom: 16px; }
+  .product-icon { width: 40px; height: 40px; margin-bottom: 16px; }
+  .product-name { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
   .product-name .sub { color: var(--electric); }
-  .product-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 28px; }
-  .product-link { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--electric); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; opacity: 0.7; transition: opacity 0.2s; }
-  .product-link:hover { opacity: 1; }
-
-  .about { border-top: 1px solid var(--border); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .product-card.apex-flow .product-name .sub { color: #7DFFB3; }
+  .product-badge { display: inline-flex; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7DFFB3; margin-bottom: 12px; }
+  .product-desc { font-size: 16px; color: var(--muted); margin-bottom: 16px; }
+  .product-link { font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; }
+  .product-card.apex-flow .product-link { color: #7DFFB3; }
+  .about-grid { display: grid; gap: 28px; }
   .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-  .stat-box { background: var(--midnight); padding: 36px 28px; }
-  .stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 52px; line-height: 1; color: var(--white); letter-spacing: -0.02em; }
+  .stat-box { background: var(--midnight); padding: 22px 16px; }
+  .stat-num { font-family: var(--display); font-weight: 700; font-size: 40px; line-height: 1; color: var(--white); }
   .stat-num span { color: var(--electric); }
-  .stat-label { font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
-
-  .contact { border-top: 1px solid var(--border); text-align: center; padding: 120px 48px; }
-  .contact .section-tag { justify-content: center; }
-  .contact .section-tag::before { display: none; }
-  .contact .section-title { margin-bottom: 20px; }
-  .contact .section-body { margin: 0 auto 48px; text-align: center; }
-  .contact-email { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.01em; color: var(--white); text-decoration: none; text-transform: uppercase; border-bottom: 2px solid var(--blue); padding-bottom: 4px; transition: border-color 0.2s, color 0.2s; }
-  .contact-email:hover { color: var(--electric); border-color: var(--electric); }
-
-  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
-  .footer-logo { display: flex; align-items: center; gap: 10px; }
-  .footer-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+  .stat-label { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+  .contact { text-align: left; }
+  .contact-email { display: inline-block; margin-top: 12px; font-family: var(--display); font-weight: 700; font-size: clamp(22px, 4vw, 36px); color: var(--white); text-decoration: none; border-bottom: 2px solid var(--blue); }
+  .contact-email:hover { color: var(--electric); }
+  footer { border-top: 1px solid var(--border); padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; }
+  .footer-wordmark { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: var(--muted); }
   .footer-wordmark span { color: var(--electric); }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
-  .footer-loc { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; display: flex; align-items: center; gap: 6px; }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes scrollLine { 0% { left: -100%; } 100% { left: 100%; } }
-
-  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-
-
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .nav-snapshot { display: inline-flex; }
-    .hero { padding: 120px 24px 60px; }
-    section { padding: 72px 24px; }
-    .products-header { grid-template-columns: 1fr; gap: 32px; }
-    .product-grid { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .about-stats { grid-template-columns: 1fr 1fr; }
-    footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+  .footer-copy, .footer-loc { font-size: 14px; color: var(--muted); }
+  @media (min-width: 800px) {
+    nav { padding: 20px 48px; }
+    .hero, section { padding-left: 48px; padding-right: 48px; }
+    .cards { grid-template-columns: 1fr 1fr 1fr; }
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+    .about-grid { grid-template-columns: 1.2fr 1fr; align-items: center; }
+    footer { flex-direction: row; justify-content: space-between; align-items: center; padding: 28px 48px; }
   }
 </style>
 </head>
 <body>
-
-<nav>
-  <a href="/" class="nav-logo">
-    <svg class="nav-mark" viewBox="0 0 36 36" fill="none">
-      <rect width="36" height="36" rx="8" fill="#185FA5"/>
-      <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
-      <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
-      <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
-    </svg>
-    <span class="nav-wordmark">APEX <span>WORKS</span></span>
-  </a>
-  <a href="/snapshot" class="nav-snapshot">Snapshot</a>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="/snapshot">Snapshot</a></li>
-    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-tag">Monroe, WA — Technology & Media</div>
-  <h1>Bold ideas.<br><span class="accent">Real</span> <span class="outline">products.</span></h1>
-  <p class="hero-sub">Apex Works builds premium digital tools, AI-powered automation, and immersive brand experiences for Pacific Northwest businesses.</p>
-  <div class="hero-actions">
-    <a href="#products" class="btn-primary">
-      View our work
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <nav aria-label="Primary">
+    <a href="/" class="nav-logo">
+      <svg class="nav-mark" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
+        <rect width="36" height="36" rx="8" fill="#185FA5"/>
+        <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
+      </svg>
+      <span class="nav-wordmark">APEX <span>WORKS</span></span>
     </a>
-    <a href="#contact" class="btn-secondary">
-      Start a project
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
-</section>
+    <ul class="nav-links">
+      <li><a href="/snapshot">Snapshot</a></li>
+      <li><a href="/site-care">Site Care</a></li>
+      <li><a href="/ai-optimization">AI</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </nav>
+</header>
 
-<section class="snapshot-callout">
-  <a href="/snapshot">$499 Site Snapshot: get more calls from Google</a>
-</section>
-
-<section class="products" id="products">
-  <div class="products-header">
-    <div class="reveal">
-      <div class="section-tag">Our portfolio</div>
-      <h2 class="section-title">What we <span class="accent">build</span></h2>
+<main id="main">
+  <section class="hero" aria-labelledby="page-title">
+    <p class="hero-tag">Monroe, WA</p>
+    <h1 id="page-title">Websites, Google search and AI tools for Washington businesses</h1>
+    <p class="hero-sub">Apex Works does website audits for Washington businesses. We show you, in plain English, why the site is or is not bringing in calls, how you show up on Google, and whether AI tools like ChatGPT and Google's AI answers can recommend you. We are based in Monroe, WA.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="/snapshot">Get the $499 Site Snapshot</a>
+      <a class="btn-secondary" href="mailto:damon@theapexworks.com">damon@theapexworks.com</a>
     </div>
-    <p class="section-body reveal reveal-delay-1">Three distinct product lines — each tackling a different problem space, all built to the same standard: premium, purposeful, and built to last.</p>
-  </div>
+  </section>
 
-  <div class="product-grid reveal">
-
-    <div class="product-card featured">
-      <div class="product-num">01</div>
-      <svg class="product-icon" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="8" fill="rgba(55,138,221,0.2)"/>
-        <rect x="8" y="20" width="6" height="12" rx="1" fill="#378ADD" opacity="0.6"/>
-        <rect x="17" y="14" width="6" height="18" rx="1" fill="#378ADD" opacity="0.8"/>
-        <rect x="26" y="8" width="6" height="24" rx="1" fill="#378ADD"/>
-      </svg>
-      <div class="product-name">Listed<span class="sub">IQ</span></div>
-      <p class="product-desc">Real-time private party vehicle intelligence for car dealers. Scraped listings, ranked by deal quality, delivered to a live dealer dashboard. B2B SaaS.</p>
-      <a href="#contact" class="product-link">listediq.com — Coming Soon →</a>
-    </div>
-
-    <div class="product-card apex-flow">
-      <div class="product-num">02</div>
-      <div class="product-badge">● New Product</div>
-      <svg class="product-icon" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="8" fill="rgba(46,204,113,0.12)"/>
-        <circle cx="20" cy="14" r="4" stroke="#2ecc71" stroke-width="1.5" fill="none"/>
-        <path d="M12 32c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#2ecc71" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M28 20l2 2 4-4" stroke="#2ecc71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="product-name">Apex <span class="sub">Flow</span></div>
-      <p class="product-desc">The automated front desk for independent service businesses. Booking, payments, review automation, and win-back SMS — for salons, clinics, and more.</p>
-      <a href="/apex-flow.html" class="product-link">Join the waitlist →</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-num">03</div>
-      <svg class="product-icon" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
-        <rect x="10" y="8" width="20" height="28" rx="4" stroke="#378ADD" stroke-width="1.5" fill="none"/>
-        <line x1="14" y1="16" x2="26" y2="16" stroke="#378ADD" stroke-width="1" stroke-linecap="round"/>
-        <line x1="14" y1="20" x2="22" y2="20" stroke="#378ADD" stroke-width="1" stroke-linecap="round"/>
-        <circle cx="20" cy="30" r="1.5" fill="#378ADD"/>
-      </svg>
-      <div class="product-name">Claw<span class="sub">Deck</span></div>
-      <p class="product-desc">Native Android mission-control app for OpenClaw AI agents. Real-time monitoring, task management, and agent orchestration from your phone.</p>
-      <a href="#contact" class="product-link">Coming to Play Store →</a>
-    </div>
-
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="about-grid">
-    <div>
-      <div class="section-tag reveal">The studio</div>
-      <h2 class="section-title reveal reveal-delay-1">Built in the <span class="accent">Pacific Northwest.</span></h2>
-      <p class="section-body reveal reveal-delay-2" style="margin-bottom: 28px;">
-        Apex Works is a technology and media studio based in Monroe, Washington. Founded by Damon Brown, we work at the intersection of AI automation, immersive media, and product development.
-      </p>
-      <p class="section-body reveal reveal-delay-2">
-        We serve automotive, marine, beverage, wellness, and outdoor recreation brands — building tools and experiences that create real results, not just deliverables.
-      </p>
-    </div>
-    <div class="about-stats reveal reveal-delay-1">
-      <div class="stat-box">
-        <div class="stat-num">3<span>+</span></div>
-        <div class="stat-label">Active products</div>
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <p class="section-tag">What we do</p>
+      <h2 id="services-title">What does Apex Works do?</h2>
+      <div class="prose">
+        <p>Apex Works does website audits, Google search help, and AI optimization for Washington businesses. Most local sites are hard to judge from the inside. You know the business. You do not have to know why Google skipped the page, why the map listing looks empty, or why a customer who asked an AI tool never heard your name.</p>
+        <p>We keep the language plain. A website audit is a written look at the site and the Google presence, with the fixes ranked by what is most likely to bring in calls. It is not a stack of scores with no next step.</p>
       </div>
-      <div class="stat-box">
-        <div class="stat-num">56<span>M</span></div>
-        <div class="stat-label">ListedIQ TAM users</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">30<span>k</span></div>
-        <div class="stat-label">RV show attendees</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">WA</div>
-        <div class="stat-label">PNW based</div>
+      <div class="cards">
+        <article class="card">
+          <h3>What is a website audit?</h3>
+          <p>A website audit is a plain-English score of your website and Google presence, plus the fixes that matter first. The <a href="/snapshot">$499 Site Snapshot</a> is that audit.</p>
+        </article>
+        <article class="card">
+          <h3>What is the Site Care Plan?</h3>
+          <p>The Site Care Plan is monthly hosting, upkeep, AI optimization, and a monthly report that includes AI prompt testing. <a href="/site-care">Read about Site Care</a>. Email damon@theapexworks.com for pricing.</p>
+        </article>
+        <article class="card">
+          <h3>What is AI optimization?</h3>
+          <p>AI optimization is help getting your business named when people ask ChatGPT and Google's AI answers for a recommendation. <a href="/ai-optimization">Read about AI optimization</a>. Email damon@theapexworks.com for pricing.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact" id="contact">
-  <div class="section-tag reveal">Let's talk</div>
-  <h2 class="section-title reveal reveal-delay-1">Start a <span class="accent">project</span></h2>
-  <p class="section-body reveal reveal-delay-2">Have a project in mind? We'd love to hear about it. Reach out and let's build something worth building.</p>
-  <a href="mailto:damon@theapexworks.com" class="contact-email reveal reveal-delay-3">damon@theapexworks.com</a>
-</section>
+  <section id="snapshot" aria-labelledby="snapshot-title">
+    <div class="wrap prose">
+      <p class="section-tag">$499 Site Snapshot</p>
+      <h2 id="snapshot-title">What is the $499 Site Snapshot?</h2>
+      <p>The $499 Site Snapshot is a one-time website audit for Washington local businesses. You pay once. You get a plain-English score, a prioritized fix list, an AI-recommendation check, a 20-minute Zoom walkthrough, and the report within about 48 hours. After that you can fix it yourself, have us make the fixes once, or use the monthly Site Care Plan.</p>
+      <p>You do not fill out a long form first. The button goes to the Snapshot page, and the buy button there opens secure checkout in the same tab.</p>
+      <p><a class="btn-primary snapshot-cta" href="/snapshot">$499 Site Snapshot: get more calls from Google</a></p>
+    </div>
+  </section>
+
+  <section id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <p class="section-tag">How it works</p>
+      <h2 id="how-title">How does the Snapshot work?</h2>
+      <p class="prose">You buy it, get a written report in about 48 hours, walk through it on Zoom, then make the fixes.</p>
+      <ol class="steps prose">
+        <li>
+          <h3>What do I buy?</h3>
+          <p>You pay $499 once. Checkout is handled by Stripe. There is no subscription hiding behind the button.</p>
+        </li>
+        <li>
+          <h3>When does the report arrive?</h3>
+          <p>Your report arrives within about 48 hours after payment. It is written in plain English, with the fixes ranked.</p>
+        </li>
+        <li>
+          <h3>What happens on the Zoom?</h3>
+          <p>A 20-minute Zoom walkthrough is included. You can ask what each fix means and what to do first.</p>
+        </li>
+        <li>
+          <h3>Who makes the changes?</h3>
+          <p>You can fix it yourself or have your web person do it using our instructions. We can also make the fixes as a one-time job, or you can use the monthly <a href="/site-care">Site Care Plan</a>.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="who" aria-labelledby="who-title">
+    <div class="wrap prose">
+      <p class="section-tag">Who we help</p>
+      <h2 id="who-title">Who do you help?</h2>
+      <p>We help local businesses and service-area businesses across Washington. We are based in Monroe. That includes a shop with a storefront and a service-area business that works from home and does not publish a street address. Both can show up on Google. The audit covers how to do that without listing an address you do not want public.</p>
+      <p>If you already have a website, we start there. If the site is thin or out of date, the audit still tells you what to fix first. We do not ask you to pretend you have a team of marketers. The writing is for the owner.</p>
+      <p>Questions go to one place: <a href="mailto:damon@theapexworks.com">damon@theapexworks.com</a>.</p>
+    </div>
+  </section>
+
+  <section class="products" id="products" aria-labelledby="products-title">
+    <div class="products-header wrap">
+      <p class="section-tag">Our portfolio</p>
+      <h2 id="products-title">What we <span class="accent">build</span></h2>
+      <p class="prose">Three distinct product lines — each tackling a different problem space, all built to the same standard: premium, purposeful, and built to last.</p>
+    </div>
+    <div class="product-grid">
+      <article class="product-card featured">
+        <div class="product-num">01</div>
+        <svg class="product-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+          <rect width="40" height="40" rx="8" fill="rgba(55,138,221,0.2)"/>
+          <rect x="8" y="20" width="6" height="12" rx="1" fill="#378ADD" opacity="0.6"/>
+          <rect x="17" y="14" width="6" height="18" rx="1" fill="#378ADD" opacity="0.8"/>
+          <rect x="26" y="8" width="6" height="24" rx="1" fill="#378ADD"/>
+        </svg>
+        <h3 class="product-name">Listed<span class="sub">IQ</span></h3>
+        <p class="product-desc">Real-time private party vehicle intelligence for car dealers. Scraped listings, ranked by deal quality, delivered to a live dealer dashboard. B2B SaaS.</p>
+        <a href="#contact" class="product-link">listediq.com — Coming Soon →</a>
+      </article>
+      <article class="product-card apex-flow">
+        <div class="product-num">02</div>
+        <p class="product-badge">New Product</p>
+        <svg class="product-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+          <rect width="40" height="40" rx="8" fill="rgba(46,204,113,0.12)"/>
+          <circle cx="20" cy="14" r="4" stroke="#2ecc71" stroke-width="1.5" fill="none"/>
+          <path d="M12 32c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#2ecc71" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M28 20l2 2 4-4" stroke="#2ecc71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="product-name">Apex <span class="sub">Flow</span></h3>
+        <p class="product-desc">The automated front desk for independent service businesses. Booking, payments, review automation, and win-back SMS — for salons, clinics, and more.</p>
+        <a href="/apex-flow" class="product-link">Join the waitlist →</a>
+      </article>
+      <article class="product-card">
+        <div class="product-num">03</div>
+        <svg class="product-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+          <rect width="40" height="40" rx="8" fill="rgba(24,95,165,0.15)"/>
+          <rect x="10" y="8" width="20" height="28" rx="4" stroke="#378ADD" stroke-width="1.5" fill="none"/>
+          <line x1="14" y1="16" x2="26" y2="16" stroke="#378ADD" stroke-width="1" stroke-linecap="round"/>
+          <line x1="14" y1="20" x2="22" y2="20" stroke="#378ADD" stroke-width="1" stroke-linecap="round"/>
+          <circle cx="20" cy="30" r="1.5" fill="#378ADD"/>
+        </svg>
+        <h3 class="product-name">Claw<span class="sub">Deck</span></h3>
+        <p class="product-desc">Native Android mission-control app for OpenClaw AI agents. Real-time monitoring, task management, and agent orchestration from your phone.</p>
+        <a href="#contact" class="product-link">Coming to Play Store →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-grid">
+      <div class="prose">
+        <p class="section-tag">The studio</p>
+        <h2 id="about-title">Built in the <span class="accent">Pacific Northwest.</span></h2>
+        <p>Apex Works is a technology and media studio based in Monroe, Washington. Founded by Damon Brown, we work at the intersection of AI automation, immersive media, and product development.</p>
+        <p>We serve automotive, marine, beverage, wellness, and outdoor recreation brands — building tools and experiences that create real results, not just deliverables.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Active products</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">56<span>M</span></div>
+          <div class="stat-label">ListedIQ TAM users</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">30<span>k</span></div>
+          <div class="stat-label">RV show attendees</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">WA</div>
+          <div class="stat-label">PNW based</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap prose">
+      <p class="section-tag">Let's talk</p>
+      <h2 id="contact-title">Start a <span class="accent">project</span></h2>
+      <p>Have a project in mind? We'd love to hear about it. Reach out and let's build something worth building.</p>
+      <a href="mailto:damon@theapexworks.com" class="contact-email">damon@theapexworks.com</a>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div class="footer-logo">
-    <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
+  <a href="/" class="footer-logo">
+    <svg width="24" height="24" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
       <rect width="36" height="36" rx="8" fill="#185FA5"/>
       <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
       <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
       <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
     </svg>
     <span class="footer-wordmark">APEX <span>WORKS</span></span>
-  </div>
-  <span class="footer-copy">© 2026 Apex Works. All rights reserved.</span>
-  <span class="footer-loc">
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2" stroke="currentColor" stroke-width="1"/><path d="M6 1C3.8 1 2 2.8 2 5c0 3 4 7 4 7s4-4 4-7c0-2.2-1.8-4-4-4z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-    Monroe, WA
-  </span>
+  </a>
+  <p class="footer-copy">© 2026 Apex Works. All rights reserved.</p>
+  <p class="footer-loc">Monroe, WA</p>
 </footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
 </body>
 </html>

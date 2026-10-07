@@ -5,6 +5,42 @@
     { "source": "/privacy/", "destination": "/privacy-policy", "permanent": true }
   ],
   "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "Content-Security-Policy": "frame-ancestors 'self'"
+      },
+      "continue": true
+    },
+    {
+      "src": "/.*\\.(?:png|svg|ico|jpg|jpeg|webp|avif|woff2|webmanifest)",
+      "headers": { "Cache-Control": "public, max-age=2592000" },
+      "continue": true
+    },
+    {
+      "src": "/robots.txt",
+      "headers": { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+      "continue": true
+    },
+    {
+      "src": "/sitemap.xml",
+      "headers": { "Content-Type": "application/xml; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+      "continue": true
+    },
+    {
+      "src": "/llms.txt",
+      "headers": { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+      "continue": true
+    },
+    {
+      "src": "/llms-full.txt",
+      "headers": { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+      "continue": true
+    },
     { "src": "/api/sms/?", "methods": ["POST"], "dest": "/api/sms.js" },
     { "src": "/wesleybrian", "dest": "/wesleybrian.html" },
     { "src": "/apex-flow", "dest": "/apex-flow.html" },
@@ -12,6 +48,8 @@
     { "src": "/terms", "dest": "/terms.html" },
     { "src": "/sms", "dest": "/sms.html" },
     { "src": "/snapshot", "dest": "/snapshot.html" },
+    { "src": "/site-care", "dest": "/site-care.html" },
+    { "src": "/ai-optimization", "dest": "/ai-optimization.html" },
     { "src": "/privacy/?", "status": 308, "headers": { "Location": "/privacy-policy" } },
     { "src": "/(.*)", "dest": "/$1" }
   ]
