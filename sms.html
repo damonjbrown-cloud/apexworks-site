@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Text Messaging — Apex Works</title>
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -13,8 +19,7 @@
   body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; opacity: 0.3; }
   nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid var(--border); background: rgba(7,16,31,0.95); backdrop-filter: blur(12px); }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-wordmark { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.06em; color: var(--white); }
-  .nav-wordmark span { color: var(--electric); }
+  .nav-logo img { display: block; height: 36px; width: auto; }
   .nav-back { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .nav-back:hover { color: var(--electric); }
   .content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 80px 48px 120px; }
@@ -33,8 +38,7 @@
 <body>
 <nav>
   <a href="/" class="nav-logo">
-    <svg width="28" height="28" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#185FA5"/><polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/><line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/></svg>
-    <span class="nav-wordmark">APEX <span>WORKS</span></span>
+    <img src="/apex-lockup-dark.svg" alt="Apex Works" width="111" height="36">
   </a>
   <a href="/" class="nav-back">← Back to home</a>
 </nav>

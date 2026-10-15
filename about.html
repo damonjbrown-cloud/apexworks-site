@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Wave — Apex Works</title>
 <meta name="description" content="The wave doesn't slow down. The ocean doesn't negotiate. Apex Works — Technology & Media Studio, Monroe, WA.">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
@@ -67,17 +73,7 @@
     text-decoration: none;
   }
 
-  .nav-mark { width: 36px; height: 36px; }
-
-  .nav-wordmark {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.06em;
-    color: var(--white);
-  }
-
-  .nav-wordmark span { color: var(--electric); }
+  .nav-logo img { display: block; height: 36px; width: auto; }
 
   .nav-links {
     display: flex;
@@ -505,15 +501,7 @@
     justify-content: space-between;
   }
 
-  .footer-wordmark {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.3);
-  }
-
-  .footer-wordmark span { color: var(--electric); }
+  .footer-lockup { display: block; height: 28px; width: auto; }
   .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
   .footer-legal { display: flex; flex-wrap: wrap; align-items: center; }
   .footer-legal a { color: #5BA8E8; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
@@ -555,13 +543,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <svg class="nav-mark" viewBox="0 0 36 36" fill="none">
-      <rect width="36" height="36" rx="8" fill="#185FA5"/>
-      <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
-      <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
-      <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
-    </svg>
-    <span class="nav-wordmark">APEX <span>WORKS</span></span>
+    <img src="/apex-lockup-dark.svg" alt="Apex Works" width="111" height="36">
   </a>
   <ul class="nav-links">
     <li><a href="index.html#products">Products</a></li>
@@ -722,11 +704,9 @@
 <!-- FOUNDER -->
 <section class="founder">
   <div class="founder-inner">
-    <svg class="founder-mark" viewBox="0 0 64 64" fill="none">
-      <rect width="64" height="64" rx="14" fill="#185FA5"/>
-      <polygon points="32,12 50,48 14,48" fill="none" stroke="#E6F1FB" stroke-width="2.5" stroke-linejoin="round"/>
-      <line x1="32" y1="24" x2="32" y2="38" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="32" cy="42" r="2.5" fill="#378ADD"/>
+    <svg class="founder-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
+      <path fill="#4C8FD6" d="M32 5 L59 59 H45 L32 32 L19 59 H5 Z"/>
+      <path fill="#2EC4B6" d="M32 42 L40 59 H24 Z"/>
     </svg>
     <div class="founder-name reveal">Damon Brown</div>
     <div class="founder-title reveal reveal-d1">Founder — Apex Works</div>
@@ -757,7 +737,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-wordmark">APEX <span>WORKS</span></span>
+  <img class="footer-lockup" src="/apex-lockup-dark.svg" alt="Apex Works" width="86" height="28">
   <span class="footer-copy">© 2026 Apex Works. Monroe, WA.</span>
   <span class="footer-copy">theapexworks.com</span>
   <nav class="footer-legal" aria-label="Legal"><a href="/privacy-policy">Privacy Policy</a><span aria-hidden="true"> · </span><a href="/terms">Terms</a><span aria-hidden="true"> · </span><a href="/sms">Text Messaging</a></nav>
