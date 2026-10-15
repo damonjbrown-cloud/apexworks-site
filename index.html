@@ -19,10 +19,11 @@
 <meta name="twitter:title" content="Apex Works | Website Audits, SEO &amp; AI Optimization | Monroe, WA">
 <meta name="twitter:description" content="Apex Works does website audits for Washington businesses from Monroe, WA. We help local companies show up on Google and in AI answers like ChatGPT. Start with a $499 Site Snapshot.">
 <meta name="twitter:image" content="https://theapexworks.com/og.png">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="/site.webmanifest">
 <script type="application/ld+json">
 {
@@ -35,7 +36,9 @@
       "url": "https://theapexworks.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://theapexworks.com/logo.png"
+        "url": "https://theapexworks.com/logo.png",
+        "width": 512,
+        "height": 512
       },
       "image": "https://theapexworks.com/og.png",
       "email": "damon@theapexworks.com",
@@ -147,9 +150,7 @@
     padding: 16px 20px;
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
-  .nav-mark { width: 36px; height: 36px; }
-  .nav-wordmark { font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: 0.06em; }
-  .nav-wordmark span { color: var(--electric); }
+  .nav-logo img { display: block; height: 36px; width: auto; }
   .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; list-style: none; }
   .nav-links a { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 2px; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
   .nav-links a:hover { color: var(--white); }
@@ -207,8 +208,7 @@
   .contact-email:hover { color: var(--electric); }
   footer { border-top: 1px solid var(--border); padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; }
   .footer-logo { display: flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; }
-  .footer-wordmark { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: var(--muted); }
-  .footer-wordmark span { color: var(--electric); }
+  .footer-logo img { display: block; height: 28px; width: auto; }
   .footer-copy, .footer-loc { font-size: 14px; color: var(--muted); }
   .footer-legal { display: flex; flex-wrap: wrap; align-items: center; }
   .footer-legal a { color: var(--link); font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 0.15em; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 48px; padding: 0 6px; }
@@ -228,13 +228,7 @@
 <header>
   <nav aria-label="Primary">
     <a href="/" class="nav-logo">
-      <svg class="nav-mark" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
-        <rect width="36" height="36" rx="8" fill="#185FA5"/>
-        <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
-        <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
-      </svg>
-      <span class="nav-wordmark">APEX <span>WORKS</span></span>
+      <img src="/apex-lockup-dark.svg" alt="Apex Works" width="111" height="36">
     </a>
     <ul class="nav-links">
       <li><a href="/snapshot">Snapshot</a></li>
@@ -418,13 +412,7 @@
 
 <footer>
   <a href="/" class="footer-logo">
-    <svg width="24" height="24" viewBox="0 0 36 36" fill="none" aria-hidden="true" focusable="false">
-      <rect width="36" height="36" rx="8" fill="#185FA5"/>
-      <polygon points="18,7 29,27 7,27" fill="none" stroke="#E6F1FB" stroke-width="1.8" stroke-linejoin="round"/>
-      <line x1="18" y1="14" x2="18" y2="22" stroke="#378ADD" stroke-width="1.8" stroke-linecap="round"/>
-      <circle cx="18" cy="24.5" r="1.5" fill="#378ADD"/>
-    </svg>
-    <span class="footer-wordmark">APEX <span>WORKS</span></span>
+    <img src="/apex-lockup-dark.svg" alt="Apex Works" width="86" height="28">
   </a>
   <p class="footer-copy">© 2026 Apex Works. All rights reserved.</p>
   <p class="footer-loc">Monroe, WA</p>
